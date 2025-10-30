@@ -26,10 +26,10 @@ func _process(delta: float) -> void:
 		_velocity.x = move_toward(_velocity.x, 0, speed * delta * 5) # Apply friction
    
 
- # Handle jump input
+	# Handle jump input
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		_velocity.y = jump_velocity
-	
-# Move the character
-velocity = _velocity
-move_and_slide()
+
+	# Move the character
+	velocity = _velocity
+	move_and_slide()
