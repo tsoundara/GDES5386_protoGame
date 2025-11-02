@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2tfquexjuoi"
-path="res://.godot/imported/Biker_run_attack.png-b76b788a287a4aa72ca376188531a73a.ctex"
+uid="uid://dsj7ipqj0w6qy"
+path="res://.godot/imported/Run.png-5abe29689631b48ab40f37b797e8eaa5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/player/Biker_run_attack.png"
-dest_files=["res://.godot/imported/Biker_run_attack.png-b76b788a287a4aa72ca376188531a73a.ctex"]
+source_file="res://Art/player/Run.png"
+dest_files=["res://.godot/imported/Run.png-5abe29689631b48ab40f37b797e8eaa5.ctex"]
 
 [params]
 

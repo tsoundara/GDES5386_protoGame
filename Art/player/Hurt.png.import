@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ptyi1k1bowl5"
-path="res://.godot/imported/Biker_jump.png-c2966355e3871b55bf7b004f6698b3ef.ctex"
+uid="uid://c2s1b5axxq374"
+path="res://.godot/imported/Hurt.png-9e94876616ca2ac1d9df333b532983b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/player/Biker_jump.png"
-dest_files=["res://.godot/imported/Biker_jump.png-c2966355e3871b55bf7b004f6698b3ef.ctex"]
+source_file="res://Art/player/Hurt.png"
+dest_files=["res://.godot/imported/Hurt.png-9e94876616ca2ac1d9df333b532983b6.ctex"]
 
 [params]
 

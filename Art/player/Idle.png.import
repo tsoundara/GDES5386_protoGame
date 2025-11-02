@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwe440x2m0l60"
-path="res://.godot/imported/Biker_climb.png-91d61a3bcef5043b09565d5fea6d4280.ctex"
+uid="uid://tivy01y6wojb"
+path="res://.godot/imported/Idle.png-46f384e782af0504fb401a4e5d1ba8ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/player/Biker_climb.png"
-dest_files=["res://.godot/imported/Biker_climb.png-91d61a3bcef5043b09565d5fea6d4280.ctex"]
+source_file="res://Art/player/Idle.png"
+dest_files=["res://.godot/imported/Idle.png-46f384e782af0504fb401a4e5d1ba8ed.ctex"]
 
 [params]
 

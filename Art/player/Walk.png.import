@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5hiresd6b2y3"
-path="res://.godot/imported/Biker_attack2.png-35a1091732be41ae92ab2f99ba93ac8c.ctex"
+uid="uid://8vbqmxx6by1r"
+path="res://.godot/imported/Walk.png-e1c7e53d6212034a2f645963ebf65ab2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/player/Biker_attack2.png"
-dest_files=["res://.godot/imported/Biker_attack2.png-35a1091732be41ae92ab2f99ba93ac8c.ctex"]
+source_file="res://Art/player/Walk.png"
+dest_files=["res://.godot/imported/Walk.png-e1c7e53d6212034a2f645963ebf65ab2.ctex"]
 
 [params]
 
