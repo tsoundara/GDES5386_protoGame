@@ -756,3 +756,4 @@ tile_set = SubResource("TileSet_elf4b")
 
 [node name="Player" parent="." instance=ExtResource("1_l26l0")]
 position = Vector2(244, 308)
+jump_velocity = -400.0

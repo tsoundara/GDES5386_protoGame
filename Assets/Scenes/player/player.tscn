@@ -329,7 +329,6 @@ size = Vector2(18, 14)
 safe_margin = 2.045
 script = ExtResource("1_im2xp")
 speed = 250.0
-jump_velocity = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -64)
