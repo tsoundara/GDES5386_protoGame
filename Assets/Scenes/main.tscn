@@ -1,4 +1,4 @@
-[gd_scene load_steps=211 format=4 uid="uid://dhro26orw11l7"]
+[gd_scene load_steps=215 format=4 uid="uid://dhro26orw11l7"]
 
 [ext_resource type="Texture2D" uid="uid://sat0oc3eweyj" path="res://Assets/Sprites/Tiles/house/House-bathroom-Sheet2.png" id="1_186fd"]
 [ext_resource type="PackedScene" uid="uid://dswyscray02pf" path="res://Assets/Scenes/player/player.tscn" id="1_l26l0"]
@@ -7,8 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://bfbg1spnirs6" path="res://Assets/Sprites/Backgrounds/city 1/1.png" id="3_rvsrt"]
 [ext_resource type="Texture2D" uid="uid://c7x8xljynh7vp" path="res://Assets/Sprites/Tiles/city/Tile_100.png" id="4_tew8r"]
 [ext_resource type="Texture2D" uid="uid://cfjxvxdsswf4o" path="res://Assets/Sprites/Backgrounds/city 1/3.png" id="5_acsc0"]
+[ext_resource type="Texture2D" uid="uid://cqr12sr4cxvdp" path="res://Assets/Sprites/Tiles/house/Updated-house-tiles.png" id="5_ikmaj"]
 [ext_resource type="Texture2D" uid="uid://c5u5xlwigmfmo" path="res://Assets/Sprites/Tiles/city/Tile_11.png" id="5_yqtqp"]
 [ext_resource type="Texture2D" uid="uid://ca3u6jyvcp7gd" path="res://Assets/Sprites/Tiles/city/Tile_12.png" id="6_186fd"]
+[ext_resource type="Texture2D" uid="uid://0c5nw3k4v4jd" path="res://Assets/Sprites/Tiles/house/V2.png" id="6_w0oek"]
 [ext_resource type="Texture2D" uid="uid://k3x71ooirvk" path="res://Assets/Sprites/Tiles/city/Tile_13.png" id="7_2hdd0"]
 [ext_resource type="Texture2D" uid="uid://p7aecvc7sl01" path="res://Assets/Sprites/Tiles/city/Tile_14.png" id="8_ikmaj"]
 [ext_resource type="Texture2D" uid="uid://c0eiupnj5w363" path="res://Assets/Sprites/Tiles/city/Tile_15.png" id="9_w0oek"]
@@ -209,6 +211,170 @@ texture = ExtResource("4_tew8r")
 1:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tqluk"]
+texture = ExtResource("5_ikmaj")
+0:0/0 = 0
+1:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gsgqb"]
+texture = ExtResource("6_w0oek")
+0:0/0 = 0
+1:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+7:7/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ilscq"]
 texture = ExtResource("5_yqtqp")
@@ -1004,6 +1170,8 @@ sources/98 = SubResource("TileSetAtlasSource_3f5un")
 sources/99 = SubResource("TileSetAtlasSource_slj8n")
 sources/100 = SubResource("TileSetAtlasSource_07fjh")
 sources/0 = SubResource("TileSetAtlasSource_2hdd0")
+sources/101 = SubResource("TileSetAtlasSource_tqluk")
+sources/103 = SubResource("TileSetAtlasSource_gsgqb")
 
 [node name="Main" type="Node2D"]
 
