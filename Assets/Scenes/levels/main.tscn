@@ -1102,8 +1102,6 @@ sources/98 = SubResource("TileSetAtlasSource_3f5un")
 sources/99 = SubResource("TileSetAtlasSource_slj8n")
 sources/100 = SubResource("TileSetAtlasSource_07fjh")
 
-
-
 [node name="Main" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
