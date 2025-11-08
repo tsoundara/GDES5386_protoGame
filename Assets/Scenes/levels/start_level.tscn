@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dswyscray02pf" path="res://Assets/Scenes/player/player.tscn" id="1_thel4"]
 [ext_resource type="Texture2D" uid="uid://sat0oc3eweyj" path="res://Assets/Sprites/Tiles/house/House-bathroom-Sheet2.png" id="2_7iq2y"]
 [ext_resource type="Texture2D" uid="uid://jobqohv1nb8n" path="res://Assets/Sprites/Tiles/house/House-bedroom-Sheet.png" id="3_wvjv5"]
-[ext_resource type="Texture2D" uid="uid://bng2ipeutc1m" path="res://Assets/Sprites/Tiles/Buildings.png" id="3_yjaly"]
+[ext_resource type="Texture2D" uid="uid://dkk1drvpu5emf" path="res://Assets/Sprites/Tiles/city/Buildings.png" id="3_yjaly"]
 [ext_resource type="Texture2D" uid="uid://csvsqe04b8xmc" path="res://Assets/Sprites/Tiles/house/House-kitchen-Sheet2.png" id="4_ncv8r"]
 [ext_resource type="Texture2D" uid="uid://ca3w05ua0i1xn" path="res://Assets/Sprites/Tiles/house/House-living room-Sheet.png" id="5_kftbv"]
 [ext_resource type="Texture2D" uid="uid://dho42qf7kn3v6" path="res://Assets/Sprites/Tiles/house/House-tileset-Sheet.png" id="6_4udfw"]
