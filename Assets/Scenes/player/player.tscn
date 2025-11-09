@@ -183,7 +183,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_q13i1")
 }],
-"loop": true,
+"loop": false,
 "name": &"Dead",
 "speed": 8.0
 }, {
@@ -260,7 +260,7 @@ animations = [{
 "speed": 8.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 8.0,
 "texture": SubResource("AtlasTexture_im2xp")
 }, {
 "duration": 1.0,
@@ -271,7 +271,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"fall",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -305,7 +305,7 @@ speed = 250.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -64)
 sprite_frames = SubResource("SpriteFrames_2hs0m")
-animation = &"Hurt"
+animation = &"fall"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4, -33)
