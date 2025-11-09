@@ -15,6 +15,10 @@ run/main_scene="uid://dhro26orw11l7"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[dotnet]
+
+project/assembly_name="GDES5386_Prototype_Game"
+
 [input]
 
 ui_left={
