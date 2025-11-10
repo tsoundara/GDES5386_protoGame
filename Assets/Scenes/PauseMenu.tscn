@@ -10,6 +10,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(1.0005839, 1.0078394)
 script = ExtResource("1_60vf1")
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
