@@ -6,7 +6,8 @@ var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var max_health: int = 5
 var current_health: int
 @export var respawn_point_position: Vector2 = Vector2.ZERO # Default to (0, 0)
-@export var game_over_screen_scene: PackedScene 
+@export var game_over_screen_scene: PackedScene
+@export var win_screen_scene: PackedScene
 
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -74,7 +75,7 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 # This function is called when the "attack" animation finishes playing
-func _on_animated_sprite_2d_animation_finished() -> void:	
+func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite.animation == "Attack":
 		is_attacking = false
 		# Deactivate the hitbox immediately after the animation finishes
@@ -127,3 +128,17 @@ func take_damage_and_respawn() -> void:
 	if current_health <= 0:
 		# NOTE: You'll likely want a separate Game Manager to handle game over screens
 		print("GAME OVER")
+		
+func win() -> void:
+	# 1. Disable player movement and input
+	set_physics_process(false)
+	set_process_input(false)
+	# 2. Stop all input/processing in the game world
+	get_tree().paused = true
+	# 3. Instantiate and display the Win Screen
+	if win_screen_scene:
+		var win_screen_instance = win_screen_scene.instantiate()
+		get_tree().root.add_child(win_screen_instance)
+		print("Player collected win condition. Displaying Win Screen.")
+	else:
+		print("WIN: Missing Win Screen Scene Path in Player Inspector.")
