@@ -1,7 +1,6 @@
 extends CanvasLayer
 
 @export var main_menu_scene_path: String = "res://Assets/Scenes/MainMenu.tscn"
-@onready var score_label: Label = $ColorRect/CenterContainer/VBoxContainer/ScoreLabel
 
 
 
