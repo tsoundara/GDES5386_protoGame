@@ -1,4 +1,4 @@
-[gd_scene load_steps=241 format=4 uid="uid://dhro26orw11l7"]
+[gd_scene load_steps=253 format=4 uid="uid://dhro26orw11l7"]
 
 [ext_resource type="Texture2D" uid="uid://da6jcageyp4ah" path="res://Assets/Sprites/Tiles/city/Tile_01.png" id="1_cno1q"]
 [ext_resource type="Script" path="res://Assets/Scripts/main.gd" id="1_i1jbo"]
@@ -6,10 +6,16 @@
 [ext_resource type="Texture2D" uid="uid://c7x8xljynh7vp" path="res://Assets/Sprites/Tiles/city/Tile_100.png" id="3_j5ivo"]
 [ext_resource type="Texture2D" uid="uid://c5u5xlwigmfmo" path="res://Assets/Sprites/Tiles/city/Tile_11.png" id="4_i1jbo"]
 [ext_resource type="Texture2D" uid="uid://ca3u6jyvcp7gd" path="res://Assets/Sprites/Tiles/city/Tile_12.png" id="5_22fik"]
+[ext_resource type="Texture2D" uid="uid://b2m83uhfjr8ly" path="res://Assets/Sprites/Tiles/residential street/Tile_94.png" id="5_cp730"]
 [ext_resource type="Texture2D" uid="uid://k3x71ooirvk" path="res://Assets/Sprites/Tiles/city/Tile_13.png" id="6_fnq0y"]
+[ext_resource type="Texture2D" uid="uid://dj2rky5ga1yij" path="res://Assets/Sprites/Tiles/residential street/Tile_96.png" id="6_k3ao8"]
+[ext_resource type="Texture2D" uid="uid://ef45xveouyy" path="res://Assets/Sprites/Tiles/residential street/Tile_95.png" id="7_7lrv3"]
 [ext_resource type="Texture2D" uid="uid://p7aecvc7sl01" path="res://Assets/Sprites/Tiles/city/Tile_14.png" id="7_g4op0"]
 [ext_resource type="Texture2D" uid="uid://c0eiupnj5w363" path="res://Assets/Sprites/Tiles/city/Tile_15.png" id="8_c003l"]
+[ext_resource type="Texture2D" uid="uid://dd63ydpw6o52c" path="res://Assets/Sprites/Tiles/residential street/Tile_97.png" id="8_xrk6q"]
 [ext_resource type="Texture2D" uid="uid://csqmypboa320w" path="res://Assets/Sprites/Tiles/city/Tile_16.png" id="9_88pgv"]
+[ext_resource type="Texture2D" uid="uid://cai7fnt5466hn" path="res://Assets/Sprites/Tiles/residential street/Tile_98.png" id="9_p1ipr"]
+[ext_resource type="Texture2D" uid="uid://d4byx5x1xgs4f" path="res://Assets/Sprites/Tiles/residential street/Tile_84.png" id="10_fu8rp"]
 [ext_resource type="Texture2D" uid="uid://bbxmdkyg41cls" path="res://Assets/Sprites/Tiles/city/Tile_17.png" id="10_gy1mn"]
 [ext_resource type="Texture2D" uid="uid://c0ni0ocfagvvl" path="res://Assets/Sprites/Tiles/city/Tile_18.png" id="11_pdv3w"]
 [ext_resource type="Texture2D" uid="uid://dgfa47ulvhkad" path="res://Assets/Sprites/Tiles/city/Tile_19.png" id="12_b6oc1"]
@@ -154,6 +160,48 @@ texture = ExtResource("2_g6l5g")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_07fjh"]
 texture = ExtResource("3_j5ivo")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bjjxt"]
+texture = ExtResource("5_cp730")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5le2n"]
+texture = ExtResource("6_k3ao8")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_emkt0"]
+texture = ExtResource("7_7lrv3")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w0uq4"]
+texture = ExtResource("8_xrk6q")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_41h26"]
+texture = ExtResource("9_p1ipr")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o8bom"]
+texture = ExtResource("10_fu8rp")
 0:0/0 = 0
 1:0/0 = 0
 0:1/0 = 0
@@ -974,6 +1022,12 @@ sources/97 = SubResource("TileSetAtlasSource_r5pj0")
 sources/98 = SubResource("TileSetAtlasSource_3f5un")
 sources/99 = SubResource("TileSetAtlasSource_slj8n")
 sources/100 = SubResource("TileSetAtlasSource_07fjh")
+sources/101 = SubResource("TileSetAtlasSource_bjjxt")
+sources/102 = SubResource("TileSetAtlasSource_5le2n")
+sources/103 = SubResource("TileSetAtlasSource_emkt0")
+sources/104 = SubResource("TileSetAtlasSource_w0uq4")
+sources/105 = SubResource("TileSetAtlasSource_41h26")
+sources/106 = SubResource("TileSetAtlasSource_o8bom")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i1jbo"]
 atlas = ExtResource("109_j5ivo")
