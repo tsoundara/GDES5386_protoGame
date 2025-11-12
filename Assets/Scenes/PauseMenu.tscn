@@ -8,8 +8,8 @@ process_mode = 1
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1152.3273
-offset_bottom = 639.9829
+offset_right = 68.95974
+offset_bottom = 146.8488
 scale = Vector2(1.0005839, 1.0078394)
 script = ExtResource("1_60vf1")
 
