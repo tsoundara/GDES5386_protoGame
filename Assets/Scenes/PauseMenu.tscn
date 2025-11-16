@@ -8,8 +8,8 @@ process_mode = 1
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 68.95974
-offset_bottom = 146.8488
+offset_right = 1152.3273
+offset_bottom = 640.97516
 scale = Vector2(1.0005839, 1.0078394)
 script = ExtResource("1_60vf1")
 
@@ -18,10 +18,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 576.16364
-offset_top = 319.99146
-offset_right = -576.16364
-offset_bottom = -319.99146
+offset_left = -2.9982605
+offset_top = -1.9844513
+offset_right = 0.99938965
+offset_bottom = 0.9921875
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)

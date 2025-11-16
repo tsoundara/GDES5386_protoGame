@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6lqpwu8o0ip4"
-path="res://.godot/imported/couch.png-2a763f2ef2aaab0bcbca9fc727bf87f2.ctex"
+uid="uid://cumh4o04lfvkf"
+path="res://.godot/imported/subway_entrance.png-a88e0f71f67820fa6260788ccd24cd58.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/objects/couch.png"
-dest_files=["res://.godot/imported/couch.png-2a763f2ef2aaab0bcbca9fc727bf87f2.ctex"]
+source_file="res://Assets/Sprites/objects/City Street/subway_entrance.png"
+dest_files=["res://.godot/imported/subway_entrance.png-a88e0f71f67820fa6260788ccd24cd58.ctex"]
 
 [params]
 

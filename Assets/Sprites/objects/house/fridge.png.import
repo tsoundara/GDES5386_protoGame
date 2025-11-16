@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv28lccgt3gh4"
-path="res://.godot/imported/shower.png-d81dbe5d71b4459e7a27890ca5dea813.ctex"
+uid="uid://cnt7mogpaboch"
+path="res://.godot/imported/fridge.png-73ea94effa92a75e4b4e9149ca38b3de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/objects/shower.png"
-dest_files=["res://.godot/imported/shower.png-d81dbe5d71b4459e7a27890ca5dea813.ctex"]
+source_file="res://Assets/Sprites/objects/house/fridge.png"
+dest_files=["res://.godot/imported/fridge.png-73ea94effa92a75e4b4e9149ca38b3de.ctex"]
 
 [params]
 

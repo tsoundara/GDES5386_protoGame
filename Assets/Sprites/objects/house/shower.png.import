@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://beypp2erdg2a1"
-path="res://.godot/imported/sink.png-ccd59dde3bf459f643dc419d3c29e160.ctex"
+uid="uid://cv28lccgt3gh4"
+path="res://.godot/imported/shower.png-a4a15c0c5fe652bb7ea1e63b773ce0ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/objects/sink.png"
-dest_files=["res://.godot/imported/sink.png-ccd59dde3bf459f643dc419d3c29e160.ctex"]
+source_file="res://Assets/Sprites/objects/house/shower.png"
+dest_files=["res://.godot/imported/shower.png-a4a15c0c5fe652bb7ea1e63b773ce0ae.ctex"]
 
 [params]
 

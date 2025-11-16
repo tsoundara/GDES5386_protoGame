@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lwswtlyid8p6"
-path="res://.godot/imported/tv stand.png-ce8c6cd7979c23a5af2affeefbd0222d.ctex"
+uid="uid://c0rmq4avx0kba"
+path="res://.godot/imported/office_paper_work_32bit_img.png-2bf36472d23ae475a18d6509b6f5d42d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/objects/tv stand.png"
-dest_files=["res://.godot/imported/tv stand.png-ce8c6cd7979c23a5af2affeefbd0222d.ctex"]
+source_file="res://Assets/Sprites/objects/office/office_paper_work_32bit_img.png"
+dest_files=["res://.godot/imported/office_paper_work_32bit_img.png-2bf36472d23ae475a18d6509b6f5d42d.ctex"]
 
 [params]
 

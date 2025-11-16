@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dusoc1wfy8f3k"
-path="res://.godot/imported/closet.png-a43c5737888c810c3c2c3c25926e27de.ctex"
+uid="uid://gp6jfncojmt0"
+path="res://.godot/imported/street_decoration.png-c44f3ecd4c1163d3a0d8042615661160.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/objects/closet.png"
-dest_files=["res://.godot/imported/closet.png-a43c5737888c810c3c2c3c25926e27de.ctex"]
+source_file="res://Assets/Sprites/objects/City Street/street_decoration.png"
+dest_files=["res://.godot/imported/street_decoration.png-c44f3ecd4c1163d3a0d8042615661160.ctex"]
 
 [params]
 

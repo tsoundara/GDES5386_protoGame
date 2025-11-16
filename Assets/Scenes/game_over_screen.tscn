@@ -1,9 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://cpgom8htueta"]
 
-[ext_resource type="Script" uid="uid://xlnd6g152w8m" path="res://Assets/Scripts/GameOverScreen.gd" id="1_we7ir"]
+[ext_resource type="Script" path="res://Assets/Scripts/GameOverScreen.gd" id="1_we7ir"]
 
 [node name="GameOverScreen" type="CanvasLayer"]
 process_mode = 3
+follow_viewport_enabled = true
 script = ExtResource("1_we7ir")
 
 [node name="ColorRect" type="ColorRect" parent="."]

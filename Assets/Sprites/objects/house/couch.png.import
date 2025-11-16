@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsgsvr8xrckim"
-path="res://.godot/imported/kitchen sink.png-412102ca23e7b95146bc19a5f57cf4fe.ctex"
+uid="uid://c6lqpwu8o0ip4"
+path="res://.godot/imported/couch.png-3f2ed21fb57ad643951f02d9c98ffe61.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/objects/kitchen sink.png"
-dest_files=["res://.godot/imported/kitchen sink.png-412102ca23e7b95146bc19a5f57cf4fe.ctex"]
+source_file="res://Assets/Sprites/objects/house/couch.png"
+dest_files=["res://.godot/imported/couch.png-3f2ed21fb57ad643951f02d9c98ffe61.ctex"]
 
 [params]
 

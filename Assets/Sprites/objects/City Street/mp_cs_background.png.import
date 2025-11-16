@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cita62mwxp32j"
-path="res://.godot/imported/chair.png-c10986702b05b1f6d2250acc07f9a12f.ctex"
+uid="uid://bsxpwbusbnhkl"
+path="res://.godot/imported/mp_cs_background.png-74a7e79e3782eda211fd9804484f22c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/objects/chair.png"
-dest_files=["res://.godot/imported/chair.png-c10986702b05b1f6d2250acc07f9a12f.ctex"]
+source_file="res://Assets/Sprites/objects/City Street/mp_cs_background.png"
+dest_files=["res://.godot/imported/mp_cs_background.png-74a7e79e3782eda211fd9804484f22c4.ctex"]
 
 [params]
 

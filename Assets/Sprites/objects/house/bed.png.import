@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnt7mogpaboch"
-path="res://.godot/imported/fridge.png-ce128a2ed8b620b0f7543554b13bf115.ctex"
+uid="uid://bo0t2u8qfxwak"
+path="res://.godot/imported/bed.png-0bad97d1adb3ed47fe5f8807dfbb2361.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/objects/fridge.png"
-dest_files=["res://.godot/imported/fridge.png-ce128a2ed8b620b0f7543554b13bf115.ctex"]
+source_file="res://Assets/Sprites/objects/house/bed.png"
+dest_files=["res://.godot/imported/bed.png-0bad97d1adb3ed47fe5f8807dfbb2361.ctex"]
 
 [params]
 

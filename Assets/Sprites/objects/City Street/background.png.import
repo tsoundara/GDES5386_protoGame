@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://swdqs4fpxtuj"
-path="res://.godot/imported/Props-01.png-b3364e4f6b0b056c91d8d8362e978490.ctex"
+uid="uid://beku5pxlo1rsk"
+path="res://.godot/imported/background.png-2c67e754b730dede9d31f336eea2d950.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Tiles/city/Props-01.png"
-dest_files=["res://.godot/imported/Props-01.png-b3364e4f6b0b056c91d8d8362e978490.ctex"]
+source_file="res://Assets/Sprites/objects/City Street/background.png"
+dest_files=["res://.godot/imported/background.png-2c67e754b730dede9d31f336eea2d950.ctex"]
 
 [params]
 

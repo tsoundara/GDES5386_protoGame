@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dd4tntgviyuhb"
-path="res://.godot/imported/table or desk.png-f71678ad635d935abd0c7fb210f57961.ctex"
+uid="uid://bpqxi7c6s7d8w"
+path="res://.godot/imported/beach.png-7071028d8ec33bcb53be9a792c3d3884.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/objects/table or desk.png"
-dest_files=["res://.godot/imported/table or desk.png-f71678ad635d935abd0c7fb210f57961.ctex"]
+source_file="res://Assets/Sprites/objects/City Street/beach.png"
+dest_files=["res://.godot/imported/beach.png-7071028d8ec33bcb53be9a792c3d3884.ctex"]
 
 [params]
 

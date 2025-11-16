@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2t84dy7rncqg"
-path="res://.godot/imported/toilet.png-8dd584fe68fe342f5954e6989bbb09aa.ctex"
+uid="uid://c6c7qqlpoemww"
+path="res://.godot/imported/mp_cs_shadows.png-082d04591841a54c0068b94b65674e3e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/objects/toilet.png"
-dest_files=["res://.godot/imported/toilet.png-8dd584fe68fe342f5954e6989bbb09aa.ctex"]
+source_file="res://Assets/Sprites/objects/City Street/mp_cs_shadows.png"
+dest_files=["res://.godot/imported/mp_cs_shadows.png-082d04591841a54c0068b94b65674e3e.ctex"]
 
 [params]
 
