@@ -6,6 +6,7 @@ var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var max_health: int = 5
 var current_health: int
 @export var respawn_point_position: Vector2 = Vector2.ZERO # Default to (0, 0)
+@export var attack_offset_x: float = 20.0 # <--- NEW: Set the base X offset (facing right)
 @export var game_over_screen_scene: PackedScene
 @export var win_screen_scene: PackedScene
 
@@ -26,6 +27,9 @@ func _input(event: InputEvent) -> void:
 
 func _ready() -> void:
 	current_health = max_health
+	# Initialize attack area position based on initial direction (0)
+	# The first time the player moves, the position will be set correctly below.
+	attack_area.position.x = attack_offset_x * 1.0 # Assume initial direction is positive 1
 
 func take_damage(amount: int, knockback_force: Vector2) -> void:
 	current_health -= amount
@@ -37,6 +41,7 @@ func take_damage(amount: int, knockback_force: Vector2) -> void:
 		die()
 
 func _physics_process(_delta: float) -> void:
+	# --- MOVEMENT LOGIC ---
 	# Apply gravity
 	if not is_on_floor():
 		velocity.y += gravity * _delta
@@ -51,18 +56,22 @@ func _physics_process(_delta: float) -> void:
 		if direction != 0:
 			velocity.x = direction * speed
 			animated_sprite.flip_h = direction < 0
+			
+			# 💡 FIX: Mirror the Attack Hitbox 
+			# We use sign(direction) to get 1 (right) or -1 (left)
+			# This multiplies the base offset to move the hitbox
+			attack_area.position.x = attack_offset_x * sign(direction)
+			
 		else:
 			# Decelerate when no input is pressed
 			velocity.x = move_toward(velocity.x, 0, speed)
 	else:
 		# When attacking, stop the player from sliding
-		# This makes the attack feel weightier/more grounded.
 		velocity.x = move_toward(velocity.x, 0, speed * _delta * 5)
 	
-	# Handle Animation State Logic (Remains the same as your original code)
+	# Handle Animation State Logic
 	if not is_attacking:
 		if not is_on_floor():
-			# Vertical animations take priority over run/idle
 			if velocity.y < 0:
 				animated_sprite.play("jump")
 			else:

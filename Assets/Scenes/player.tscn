@@ -295,7 +295,7 @@ animations = [{
 size = Vector2(20, 66)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_im2xp"]
-size = Vector2(75, 24)
+size = Vector2(18, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v73hl"]
 size = Vector2(36, 66)
@@ -304,6 +304,8 @@ size = Vector2(36, 66)
 safe_margin = 2.045
 script = ExtResource("1_im2xp")
 speed = 250.0
+max_health = 10
+attack_offset_x = 23.42
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -64)
@@ -317,7 +319,7 @@ shape = SubResource("RectangleShape2D_t7qi1")
 [node name="AttackArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(2.5, -48)
+position = Vector2(9, -48)
 shape = SubResource("RectangleShape2D_im2xp")
 
 [node name="Camera2D" type="Camera2D" parent="."]

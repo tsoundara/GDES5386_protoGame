@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpgom8htueta"]
+[gd_scene load_steps=6 format=3 uid="uid://cpgom8htueta"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/GameOverScreen.gd" id="1_we7ir"]
+[ext_resource type="Texture2D" uid="uid://b5h1m5ph2np2" path="res://Assets/Sprites/UI/Restart1.png" id="2_wp64j"]
+[ext_resource type="Texture2D" uid="uid://bx11oodx2x43h" path="res://Assets/Sprites/UI/Restart2.png" id="3_5vxfh"]
+[ext_resource type="Texture2D" uid="uid://d0lt5wu24ranv" path="res://Assets/Sprites/UI/Home1.png" id="4_bbc3d"]
+[ext_resource type="Texture2D" uid="uid://cgp1mqy8ufcbx" path="res://Assets/Sprites/UI/Home2.png" id="5_00dx5"]
 
 [node name="GameOverScreen" type="CanvasLayer"]
 process_mode = 3
-follow_viewport_enabled = true
 script = ExtResource("1_we7ir")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -19,36 +22,40 @@ offset_bottom = 40.0
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="RichTextLabel" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -132.0
-offset_top = -60.0
-offset_right = 132.0
-offset_bottom = 60.0
+offset_left = -152.0
+offset_top = -76.0
+offset_right = 112.0
+offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Game Over"
+bbcode_enabled = true
+text = "[b]Game Over[/b]
+
+"
 horizontal_alignment = 1
 vertical_alignment = 1
-uppercase = true
 
-[node name="RestartButton" type="Button" parent="."]
-offset_left = 448.0
-offset_top = 384.0
-offset_right = 513.0
-offset_bottom = 415.0
-text = "Restart"
+[node name="RestartButton" type="TextureButton" parent="."]
+offset_left = 400.0
+offset_top = 347.0
+offset_right = 550.0
+offset_bottom = 397.0
+texture_normal = ExtResource("2_wp64j")
+texture_pressed = ExtResource("3_5vxfh")
 
-[node name="MenuButton" type="Button" parent="."]
-offset_left = 640.0
-offset_top = 384.0
-offset_right = 693.0
-offset_bottom = 415.0
-text = "Menu"
+[node name="MenuButton" type="TextureButton" parent="."]
+offset_left = 568.0
+offset_top = 346.0
+offset_right = 718.0
+offset_bottom = 396.0
+texture_normal = ExtResource("4_bbc3d")
+texture_pressed = ExtResource("5_00dx5")
 
 [connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

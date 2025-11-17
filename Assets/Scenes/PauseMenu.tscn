@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1na482f6cji2"]
+[gd_scene load_steps=10 format=3 uid="uid://b1na482f6cji2"]
 
 [ext_resource type="Script" uid="uid://o2lp24fm7tid" path="res://Assets/Scripts/PauseMenu.gd" id="1_60vf1"]
+[ext_resource type="Texture2D" uid="uid://dc8a60ekiqq2x" path="res://Assets/Sprites/UI/Resume1.png" id="2_qyf63"]
+[ext_resource type="Texture2D" uid="uid://deo438a2o18b8" path="res://Assets/Sprites/UI/Resume2.png" id="3_uaxmc"]
+[ext_resource type="Texture2D" uid="uid://c0o0prvwjvlpw" path="res://Assets/Sprites/UI/Restart2_v2.png" id="4_egphd"]
+[ext_resource type="Texture2D" uid="uid://cdi750kunewdi" path="res://Assets/Sprites/UI/Restart1_V2.png" id="4_qyf63"]
+[ext_resource type="Texture2D" uid="uid://d0lt5wu24ranv" path="res://Assets/Sprites/UI/Home1.png" id="6_siuwn"]
+[ext_resource type="Texture2D" uid="uid://cgp1mqy8ufcbx" path="res://Assets/Sprites/UI/Home2.png" id="7_jguo2"]
+[ext_resource type="Texture2D" uid="uid://br5bt61xl5cid" path="res://Assets/Sprites/UI/Quit1.png" id="8_vc4f3"]
+[ext_resource type="Texture2D" uid="uid://bf3e0m6q73al" path="res://Assets/Sprites/UI/Quit2.png" id="9_r43wi"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 1
@@ -24,31 +32,54 @@ offset_right = 0.99938965
 offset_bottom = 0.9921875
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0.5647059)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 28.825
 anchor_bottom = 16.25
-offset_right = -32060.51
-offset_bottom = -9757.755
+offset_left = 516.6983
+offset_top = 246.07094
+offset_right = -32549.137
+offset_bottom = -10014.775
 
-[node name="Button_Resume" type="Button" parent="Control/VBoxContainer"]
+[node name="Button_Resume" type="TextureButton" parent="Control/VBoxContainer"]
 layout_mode = 2
-text = "Resume"
+texture_normal = ExtResource("2_qyf63")
+texture_pressed = ExtResource("3_uaxmc")
 
-[node name="Button_Restart" type="Button" parent="Control/VBoxContainer"]
+[node name="Button_Restart" type="TextureButton" parent="Control/VBoxContainer"]
 layout_mode = 2
-text = "Restart
+texture_normal = ExtResource("4_qyf63")
+texture_pressed = ExtResource("4_egphd")
+
+[node name="Button_Home" type="TextureButton" parent="Control/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_siuwn")
+texture_pressed = ExtResource("7_jguo2")
+
+[node name="Button_Quit" type="TextureButton" parent="Control/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_vc4f3")
+texture_pressed = ExtResource("9_r43wi")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 745.56464
+offset_top = 244.08649
+offset_right = 1049.3875
+offset_bottom = 426.65524
+alignment = 1
+
+[node name="Label" type="RichTextLabel" parent="Control/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[b][color=red][u]CONTROLS[/u][/color][/b]
+Shift :  Attack
+Arrow Keys or WASD : Movement
+Space : Interaction
 "
-
-[node name="Button_Home" type="Button" parent="Control/VBoxContainer"]
-layout_mode = 2
-text = "Home
-"
-
-[node name="Button_Quit" type="Button" parent="Control/VBoxContainer"]
-layout_mode = 2
-text = "Quit
-"
+fit_content = true
+scroll_active = false
