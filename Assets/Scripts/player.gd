@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 @export var speed: float = 300.0
@@ -8,6 +9,11 @@ var current_health: int
 @export var respawn_point_position: Vector2 = Vector2.ZERO # Default to (0, 0)
 @export var game_over_screen_scene: PackedScene
 @export var win_screen_scene: PackedScene
+
+
+var default_zoom := Vector2(1.0, 1.0)
+var zoomed_in := Vector2(2.0, 2.0)
+@onready var camera: Camera2D = get_node("Camera2D")
 
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -23,9 +29,22 @@ func _input(event: InputEvent) -> void:
 		animated_sprite.play("Attack")
 		# Activate the hitbox when the animation starts
 		attack_area.monitoring = true
+		
+	# Check dialog progress
+	if event.is_action_pressed("check_progress"):
+		print("Letters done:", Player.mark_interacted("letters_dialog"))
+		print("TV done:", Player.mark_interacted("tv_dialog"))
+		print("Both done:", Player.has_interacted_all(["letters_dialog", "tv_dialog"]))
 
 func _ready() -> void:
 	current_health = max_health
+	
+	var current_scene_name = get_tree().current_scene.name
+	print(current_scene_name)
+	if current_scene_name == "Start_level":
+		camera.zoom = zoomed_in
+	else:
+		camera.zoom = default_zoom
 
 func take_damage(amount: int, knockback_force: Vector2) -> void:
 	current_health -= amount
@@ -35,6 +54,20 @@ func take_damage(amount: int, knockback_force: Vector2) -> void:
 	flash_red()
 	if current_health <= 0:
 		die()
+
+# Start area dialog tracking
+static var interacted_objects = []
+
+static func mark_interacted(key: String):
+	if key not in interacted_objects:
+		interacted_objects.append(key)
+		print("Marked as interacted:", key)
+
+static func has_interacted_all(keys: Array) -> bool:
+	for key in keys:
+		if key not in interacted_objects:
+			return false
+	return true
 
 func _physics_process(_delta: float) -> void:
 	# Apply gravity
