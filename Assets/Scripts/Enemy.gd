@@ -72,19 +72,29 @@ func patrol(_delta: float) -> void:
 			is_returning_home = false
 			# Reset direction for standard patrol (e.g., face right)
 			direction = 1
-	# --- Movement ---
-	velocity.x = direction * current_speed
-	move_and_slide()
 	
+	# --- Directional Logic (MUST run before movement) ---
 	# Flip sprite visually
 	animated_sprite.flip_h = direction < 0
-	# 🚨 FIX: Flip the Attack Area position 🚨
-	attack_area.position.x = base_attack_offset_x * direction
+	# Flip the Attack Area position
+	attack_area.position.x = base_attack_offset_x * direction 
+	# 💡 FIX: Flip both RayCasts to face the current direction
+	ground_check_ray.scale.x = direction
+	wall_check_ray.scale.x = direction
 	
-	# Patrol boundary check only when NOT returning home
+	# --- Wall/Cliff Check ---
+	if wall_check_ray.is_colliding() or not ground_check_ray.is_colliding():
+		direction *= -1 # Reverse direction
+	
+	# Patrol boundary check only when NOT returning home (run AFTER wall check)
 	if not is_returning_home:
 		if abs(global_position.x - start_position.x) > patrol_distance:
 			direction *= -1
+	
+	# --- Movement ---
+	velocity.x = direction * current_speed
+	move_and_slide()
+
 
 
 func chase_player(_delta: float) -> void:
@@ -94,11 +104,12 @@ func chase_player(_delta: float) -> void:
 	direction = sign(distance)
 	animated_sprite.flip_h = direction < 0
 	# 🚨 FIX: Flip the Attack Area position 🚨
-	attack_area.position.x = base_attack_offset_x * direction
+	attack_area.position.x = base_attack_offset_x * direction # This mirrors the hitbox
 	
-	var ray_scale = direction
-	ground_check_ray.scale.x = ray_scale
-	wall_check_ray.scale.x = ray_scale
+	# Flip the RayCasts
+	ground_check_ray.scale.x = direction
+	wall_check_ray.scale.x = direction
+	
 	if not ground_check_ray.is_colliding():
 		animated_sprite.play("Idle")
 		velocity.x = 0
