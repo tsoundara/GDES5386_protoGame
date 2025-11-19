@@ -7,14 +7,14 @@ var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var max_health: int = 5
 var current_health: int
 @export var respawn_point_position: Vector2 = Vector2.ZERO # Default to (0, 0)
+@export var attack_offset_x: float = 20.0 # Set the base X offset (facing right)
 @export var game_over_screen_scene: PackedScene
 @export var win_screen_scene: PackedScene
-
+@onready var ui: Node = %PlayerUI
 
 var default_zoom := Vector2(1.0, 1.0)
 var zoomed_in := Vector2(2.0, 2.0)
-@onready var camera: Camera2D = get_node("Camera2D")
-
+@onready var camera: Camera2D = $Camera2D # Corrected to use $Camera2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_area: Area2D = $AttackArea
@@ -37,7 +37,19 @@ func _input(event: InputEvent) -> void:
 		print("Both done:", Player.has_interacted_all(["letters_dialog", "tv_dialog"]))
 
 func _ready() -> void:
+	# 💡 FIX 1: Current health must be set BEFORE initializing the UI!
 	current_health = max_health
+	
+	# This ensures the health label shows "5 / 5" at the start of the game.
+	if is_instance_valid(ui) and ui.has_method("initialize_ui"):
+		# We now pass the current health and score (0) to initialize the UI.
+		#The UI is initialized *every time* the Player scene loads.
+		ui.initialize_ui(max_health)
+	else:
+		print("ERROR: Player UI node (%PlayerUI) not found or script is missing!")
+	
+	# Initialize attack area position based on initial direction (0)
+	attack_area.position.x = attack_offset_x * 1.0 # Assume initial direction is positive 1
 	
 	var current_scene_name = get_tree().current_scene.name
 	print(current_scene_name)
@@ -48,6 +60,15 @@ func _ready() -> void:
 
 func take_damage(amount: int, knockback_force: Vector2) -> void:
 	current_health -= amount
+	#Ensure health doesn't go below zero for UI integrity
+	if current_health < 0:
+		current_health = 0
+		
+   # 💡 FIX 2: UPDATE UI DISPLAY ON DAMAGE
+	# This call tells the UI script to update the number immediately.
+	if is_instance_valid(ui) and ui.has_method("update_health"):
+		ui.update_health(current_health)
+		
 	# Apply knockback
 	velocity = knockback_force
 	# Optional: flash red or play hurt animation
@@ -70,6 +91,7 @@ static func has_interacted_all(keys: Array) -> bool:
 	return true
 
 func _physics_process(_delta: float) -> void:
+	# --- MOVEMENT LOGIC ---
 	# Apply gravity
 	if not is_on_floor():
 		velocity.y += gravity * _delta
@@ -84,18 +106,22 @@ func _physics_process(_delta: float) -> void:
 		if direction != 0:
 			velocity.x = direction * speed
 			animated_sprite.flip_h = direction < 0
+			
+			# 💡 FIX: Mirror the Attack Hitbox 
+			# We use sign(direction) to get 1 (right) or -1 (left)
+			# This multiplies the base offset to move the hitbox
+			attack_area.position.x = attack_offset_x * sign(direction)
+			
 		else:
 			# Decelerate when no input is pressed
 			velocity.x = move_toward(velocity.x, 0, speed)
 	else:
 		# When attacking, stop the player from sliding
-		# This makes the attack feel weightier/more grounded.
 		velocity.x = move_toward(velocity.x, 0, speed * _delta * 5)
 	
-	# Handle Animation State Logic (Remains the same as your original code)
+	# Handle Animation State Logic
 	if not is_attacking:
 		if not is_on_floor():
-			# Vertical animations take priority over run/idle
 			if velocity.y < 0:
 				animated_sprite.play("jump")
 			else:
@@ -118,10 +144,10 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 func _on_attack_area_body_entered(body: Node) -> void:
 	if not is_attacking:
-		return  # Only register hits during an attack
+		return# Only register hits during an attack
 	
 	if body.is_in_group("enemies"):
-		body.die()  # Call the enemy's die() function
+		body.die()# Call the enemy's die() function
 
 func flash_red() -> void:
 	animated_sprite.modulate = Color(1, 0.3, 0.3)
@@ -142,25 +168,27 @@ func die() -> void:
 	await animated_sprite.animation_finished
 	queue_free()
 
+# 🚨 FIX 3: This function should only handle damage and *check* for death, 
+# not handle the scene reload itself unless you are doing a soft respawn.
+# We only want to take damage (1) and call die() if health hits zero.
 func take_damage_and_respawn() -> void:
-	# Stop processing physics during the respawn
-	set_physics_process(false)
-	# 1. Deduct life/health if you are using a life count system
-	# current_health -= 1 # Example
-	# 2. Reset Player State (Crucial for a clean respawn)
-	current_health = max_health # Restore health
-	is_attacking = false
-	attack_area.monitoring = false
-	velocity = Vector2.ZERO
-	# 3. Teleport to Respawn Point
-	global_position = respawn_point_position
-	# Optional: Brief invulnerability flash or fade-in effect here
-	# 4. Resume processing physics
-	set_physics_process(true)
-	# 5. Handle Game Over if necessary
-	if current_health <= 0:
-		# NOTE: You'll likely want a separate Game Manager to handle game over screens
-		print("GAME OVER")
+	# 1. Deduct 1 health (assuming the kill zone is lethal)
+	take_damage(1, Vector2.ZERO)
+	
+	# 2. If the player is still alive after the damage, teleport them back.
+	if current_health > 0:
+		set_physics_process(false)
+		is_attacking = false
+		attack_area.monitoring = false
+		velocity = Vector2.ZERO
+		global_position = respawn_point_position
+		
+		# 💡 FIX 4: Update UI after a soft respawn/teleport back to checkpoint
+		if is_instance_valid(ui) and ui.has_method("update_health"):
+			ui.update_health(current_health)
+			
+		set_physics_process(true)
+	# NOTE: If current_health <= 0, the take_damage call above already called die().
 		
 func win() -> void:
 	# 1. Disable player movement and input
