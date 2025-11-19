@@ -1,45 +1,40 @@
-extends Area2D # <-- CHANGED FROM CharacterBody2D
+extends Area2D
 
 # --- Exported Variables (Tweak in the Inspector) ---
 @export var speed: float = 40.0            # Horizontal walking speed
-@export var patrol_duration: float = 3.0   # Max time to walk before idling (if no obstacles)
+@export var patrol_duration: float = 3.0   # Max time to walk before idling
 @export var idle_min_time: float = 2.0     # Minimum time to stand still
 @export var idle_max_time: float = 5.0     # Maximum time to stand still
+@export var patrol_distance: float = 100.0
 
 # --- State Constants ---
 const STATE_IDLE = 0
 const STATE_PATROL = 1
 
-# --- Built-in Physics Vars ---
-# Removed gravity calculation since Area2D doesn't need it for movement
-var current_state: int = STATE_PATROL
+# --- Internal Variables ---
+var start_position: Vector2
 var direction: int = 1 # 1 for right, -1 for left
+var current_state: int = STATE_PATROL
 
-# --- Node References (MUST be added in the scene) ---
+# --- Node References ---
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var state_timer: Timer = $StateTimer         # Used to control state durations
-@onready var ground_check_ray: RayCast2D = $GroundCheckRayCast # Points down/forward
-@onready var wall_check_ray: RayCast2D = $WallCheckRayCast     # Points forward
+@onready var state_timer: Timer = $StateTimer # <-- REQUIRED: Must re-add Timer node!
 
 func _ready() -> void:
+	start_position = global_position
+	
 	# Connect the timer signal to the state transition function
 	state_timer.timeout.connect(_on_state_timer_timeout)
+	
+	# Start in the patrol state
 	_change_state(STATE_PATROL)
 
 func _physics_process(delta: float) -> void:
-	# Apply gravity and move_and_slide are removed!
-	
-	# Run the current state logic
 	match current_state:
 		STATE_PATROL:
 			_state_patrol(delta)
 		STATE_IDLE:
 			_state_idle(delta)
-			
-	# We use position manipulation instead of move_and_slide()
-	# Note: Since the NPC doesn't collide, we don't need a physics body
-	# to stop it from falling, but we still rely on GroundCheckRayCast 
-	# for the wandering logic.
 
 # ----------------------------------------------------
 # --- State Management and Transitions ---
@@ -50,54 +45,51 @@ func _change_state(new_state: int) -> void:
 	
 	match current_state:
 		STATE_PATROL:
-			animated_sprite.play("Walk") # Assumes you have a "Walk" animation
+			animated_sprite.play("Walk")
 			# Set patrol duration and start the timer
 			state_timer.start(patrol_duration)
 		STATE_IDLE:
-			animated_sprite.play("Idle") # Assumes you have an "Idle" animation
+			animated_sprite.play("Idle")
 			# Set a random idle duration and start the timer
 			var idle_time = randf_range(idle_min_time, idle_max_time)
 			state_timer.start(idle_time)
-			# Removed velocity.x = 0 as we use position directly now
+
+			# Optional: Decide to turn around during idle, before starting to walk again.
+			if randi() % 2 == 0:
+				_turn_around()
 			
 func _on_state_timer_timeout() -> void:
 	# Logic to switch to the *other* state when the timer runs out
 	if current_state == STATE_PATROL:
 		_change_state(STATE_IDLE)
 	elif current_state == STATE_IDLE:
-		# After idling, switch back to patrol, but first decide which way to go
-		# 50/50 chance to switch direction after idling
-		if randi() % 2 == 0:
-			_turn_around()
+		# After idling, switch back to patrol
 		_change_state(STATE_PATROL)
 
 # ----------------------------------------------------
 # --- State Logic Functions ---
 # ----------------------------------------------------
 
-func _state_patrol(delta: float) -> void: # <-- delta parameter is now used
-	# 1. Update visual and directional components (must run every frame)
-	animated_sprite.flip_h = direction < 0
-	wall_check_ray.scale.x = direction     # Flip RayCasts to point forward
-	ground_check_ray.scale.x = direction   # Flip RayCasts to point forward
-	
-	# 2. Check for walls or cliffs and reverse direction if needed
-	if wall_check_ray.is_colliding() or not ground_check_ray.is_colliding():
-		_turn_around()
-		# Reset the timer when turning due to obstacle,
-		# so the NPC gets a fresh patrol duration from the new spot.
-		state_timer.start(patrol_duration) 
-		
-	# 3. Apply movement using global_position directly (since no collision is desired)
+func _state_patrol(delta: float) -> void:
+	# 1. Apply Movement
 	global_position.x += direction * speed * delta
 
+	# 2. Update Visuals
+	animated_sprite.flip_h = direction < 0
+
+	# 3. Check Boundary and Turn
+	# If the NPC has moved too far from its starting position, turn around.
+	if abs(global_position.x - start_position.x) >= patrol_distance:
+		_turn_around()
+		# Reset the timer so it doesn't immediately switch to idle after turning
+		state_timer.start(patrol_duration)
+
+
 func _state_idle(_delta: float) -> void:
-	# Just sits here waiting for the timer to finish
+	# Do nothing while idling. The timer handles the transition.
 	pass
 
-# ----------------------------------------------------
 # --- Helper Function ---
-# ----------------------------------------------------
 
 func _turn_around() -> void:
 	direction *= -1

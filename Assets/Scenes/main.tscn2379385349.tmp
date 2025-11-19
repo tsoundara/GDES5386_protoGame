@@ -1,4 +1,4 @@
-[gd_scene load_steps=351 format=4 uid="uid://dhro26orw11l7"]
+[gd_scene load_steps=350 format=4 uid="uid://dhro26orw11l7"]
 
 [ext_resource type="Texture2D" uid="uid://da6jcageyp4ah" path="res://Assets/Sprites/Tiles/city/Tile_01.png" id="1_cno1q"]
 [ext_resource type="Script" path="res://Assets/Scripts/main.gd" id="1_i1jbo"]
@@ -217,7 +217,6 @@
 [ext_resource type="Texture2D" uid="uid://bjq6kntr3mw3j" path="res://Assets/Sprites/objects/Ad/128x64/12.png" id="213_k352e"]
 [ext_resource type="PackedScene" uid="uid://bd7x0si7h5kwy" path="res://Assets/Scenes/npc_3.tscn" id="216_8x5nl"]
 [ext_resource type="PackedScene" uid="uid://cj7xrh7dhsjyb" path="res://Assets/Scenes/npc_4.tscn" id="217_gewgk"]
-[ext_resource type="PackedScene" uid="uid://b7pim77m3rnfd" path="res://Assets/Scenes/PlayerUI.tscn" id="218_gewgk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7lrv3"]
 texture = ExtResource("2_k3ao8")
@@ -5666,9 +5665,6 @@ jump_velocity = -500.0
 game_over_screen_scene = ExtResource("113_gsgqb")
 win_screen_scene = ExtResource("104_7onjj")
 
-[node name="PlayerUI" parent="." instance=ExtResource("218_gewgk")]
-unique_name_in_owner = true
-
 [node name="Enemy_1" parent="." instance=ExtResource("108_g6l5g")]
 z_index = 1
 position = Vector2(331, 561)
@@ -8908,25 +8904,22 @@ position = Vector2(5089, 394)
 texture = ExtResource("213_k352e")
 
 [node name="Npc3" parent="." instance=ExtResource("125_p7yo7")]
-position = Vector2(4205, 560)
-speed = 40.0
-patrol_distance = 100.0
+position = Vector2(4217, 530)
 
 [node name="Npc4" parent="." instance=ExtResource("126_e4la5")]
-position = Vector2(4336, 561)
+position = Vector2(4340, 530)
+speed = null
+patrol_distance = null
 
 [node name="npc3" parent="." instance=ExtResource("216_8x5nl")]
 position = Vector2(4278, 521)
+speed = null
+patrol_distance = null
 
 [node name="npc4" parent="." instance=ExtResource("217_gewgk")]
 position = Vector2(4138, 546)
 
 [node name="Area2D" parent="." instance=ExtResource("125_p7yo7")]
 position = Vector2(1245, 559)
-speed = 40.0
-patrol_distance = 100.0
-
-[node name="Area2D2" parent="." instance=ExtResource("126_e4la5")]
-position = Vector2(1445, 561)
 
 [connection signal="body_entered" from="KillZone" to="." method="_on_kill_zone_body_entered"]

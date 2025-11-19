@@ -1,30 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://b7pim77m3rnfd"]
 
-[sub_resource type="GDScript" id="GDScript_q3gd0"]
-script/source = "# UI.gd
-extends CanvasLayer
+[ext_resource type="Script" uid="uid://ck5d02tqm723l" path="res://Assets/Scripts/PlayerUI.gd" id="1_p2cie"]
 
-@onready var health_value: Label = $MarginContainer/HBoxContainer/HealthValue
-@onready var score_value: Label = $MarginContainer/HBoxContainer/ScoreValue
-
-var health: int = 5
-var score: int = 0
-
-func _ready() -> void:
-	update_health(health)
-	update_score(score)
-
-func update_health(value: int) -> void:
-	health = value
-	health_value.text = str(health)
-
-func update_score(value: int) -> void:
-	score = value
-	score_value.text = str(score)
-"
-
-[node name="PlayerUI" type="CanvasLayer" groups=["ui"]]
-script = SubResource("GDScript_q3gd0")
+[node name="PlayerUI" type="CanvasLayer"]
+script = ExtResource("1_p2cie")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -35,10 +14,20 @@ grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+size_flags_vertical = 0
+alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="HealthLabel" type="Label" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = "Health:"
 
 [node name="HealthValue" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
+text = "10 / 10"
+
+[node name="ScoreValue" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
