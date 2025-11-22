@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=4 uid="uid://b2wqec8acn5nq"]
+[gd_scene load_steps=68 format=4 uid="uid://b2wqec8acn5nq"]
 
 [ext_resource type="Texture2D" uid="uid://c2xdio2i8ybe6" path="res://Assets/Sprites/Tiles/residential street/Tile_27.png" id="1_ahag5"]
 [ext_resource type="Texture2D" uid="uid://ckm7aad6q6d13" path="res://Assets/Sprites/Tiles/residential street/Tile_01.png" id="1_r44lk"]
@@ -35,6 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://cpgom8htueta" path="res://Assets/Scenes/game_over_screen.tscn" id="32_dbxsu"]
 [ext_resource type="Texture2D" uid="uid://c7g6aoxvk2jmd" path="res://Assets/Sprites/Backgrounds/city 8/2.png" id="33_0jq01"]
 [ext_resource type="PackedScene" uid="uid://b1na482f6cji2" path="res://Assets/Scenes/PauseMenu.tscn" id="34_kx6e1"]
+[ext_resource type="PackedScene" uid="uid://b7pim77m3rnfd" path="res://Assets/Scenes/PlayerUI.tscn" id="36_udblq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q7l6p"]
 texture = ExtResource("1_r44lk")
@@ -1629,3 +1630,6 @@ scale = Vector2(3.0019288, 3.0138888)
 texture = ExtResource("33_0jq01")
 
 [node name="PauseMenu" parent="." instance=ExtResource("34_kx6e1")]
+
+[node name="PlayerUI" parent="." instance=ExtResource("36_udblq")]
+unique_name_in_owner = true
