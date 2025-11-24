@@ -30,7 +30,7 @@
 		"Player: 'It looks super comfy, but I don't want to sit down right now.'"
 	],
 	"fridge_dialog": [
-		"You stare blankly towards your empty fridge. You haven't stocked it in 2 weeks... You should really stop ordering takeout."
+		"You stare blankly towards your empty fridge. You haven't stocked it in 2 weeks. You should really stop ordering takeout..."
 	],
 	"garbage_dialog": [
 		"Your garbage can reeks of crumpled takeout boxes and moldy leftovers."
@@ -39,7 +39,7 @@
 		"Your sheets lay haphazardly on the bed like a tornado stopped by. Rough night."
 	],
 	"door_locked": [
-		"Player: 'I don't want to leave right now.'"
+		"Player: 'I don't have a reason to leave yet.'"
 	],
 	"door_unlocked": [
 		"Player: 'I should leave. I have a commissioner to defeat and a ticket to waive.'"
