@@ -290,8 +290,6 @@ size = Vector2(37.999996, 34)
 
 [node name="Enemy_1" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_rwlbr")
-attack_cooldown = 0.5
-base_attack_offset_x = 20.0
 
 [node name="EnemyAnimatedSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -64)

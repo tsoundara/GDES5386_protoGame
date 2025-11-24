@@ -137,12 +137,31 @@ func attack() -> void:
 	is_attacking = true
 	can_attack = false
 	velocity.x = 0
+	# 🟢 FIX: Check for overlapping bodies immediately when the attack starts
+	_check_initial_overlap()
 	# Pick a random attack animation
 	var attack_anim = "Attack1" if randi() % 2 == 0 else "Attack2"
 	animated_sprite.play(attack_anim)
 	# Re-enable attack after cooldown
 	await get_tree().create_timer(attack_cooldown).timeout
 	can_attack = true
+
+# 🟢 NEW FUNCTION: Handles damage for bodies already overlapping at the start of the attack
+func _check_initial_overlap() -> void:
+	var overlapping_bodies = attack_area.get_overlapping_bodies()
+	for body in overlapping_bodies:
+		if body.is_in_group("player"):
+			# Only apply damage once for the initial overlap check
+			_apply_damage(body)
+			# NOTE: We break here because the enemy only needs to hit one player.
+			break
+
+# 🟢 NEW FUNCTION: Centralize the damage logic
+func _apply_damage(body: Node) -> void:
+	# Calculate knockback direction
+	var dir = sign(body.global_position.x - global_position.x)
+	var knockback_force = Vector2(dir * 200, -150)
+	body.take_damage(1, knockback_force)
 
 
 func _on_detection_area_body_entered(body: Node) -> void:
@@ -172,10 +191,8 @@ func _on_enemy_animated_sprite_animation_finished() -> void:
 		queue_free()
 
 func _on_attack_area_body_entered(body: Node) -> void:
+# 💡 Update: We now rely on is_attacking state and the new central damage function.
 	if not is_attacking:
 		return
 	if body.is_in_group("player"):
-		# Calculate knockback direction
-		var dir = sign(body.global_position.x - global_position.x)
-		var knockback_force = Vector2(dir * 200, -150)
-		body.take_damage(1, knockback_force)
+		_apply_damage(body)
