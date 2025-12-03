@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=4 uid="uid://b2wqec8acn5nq"]
+[gd_scene load_steps=84 format=4 uid="uid://b2wqec8acn5nq"]
 
 [ext_resource type="Texture2D" uid="uid://c2xdio2i8ybe6" path="res://Assets/Sprites/Tiles/residential street/Tile_27.png" id="1_ahag5"]
 [ext_resource type="Texture2D" uid="uid://ckm7aad6q6d13" path="res://Assets/Sprites/Tiles/residential street/Tile_01.png" id="1_r44lk"]
@@ -32,9 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://hm0kphakmfhe" path="res://Assets/Sprites/Tiles/residential street/Tile_03.png" id="27_73fmi"]
 [ext_resource type="Texture2D" uid="uid://buuvgbqg8nrp8" path="res://Assets/Sprites/Tiles/residential street/Tile_04.png" id="28_vq0j8"]
 [ext_resource type="Texture2D" uid="uid://byw40pdm7ojeq" path="res://Assets/Sprites/Tiles/residential street/Tile_05.png" id="29_5ng4f"]
-[ext_resource type="Texture2D" uid="uid://xu8onw01v3s8" path="res://Assets/Sprites/Backgrounds/city 8/1.png" id="32_8ap1h"]
 [ext_resource type="PackedScene" uid="uid://cpgom8htueta" path="res://Assets/Scenes/game_over_screen.tscn" id="32_dbxsu"]
-[ext_resource type="Texture2D" uid="uid://c7g6aoxvk2jmd" path="res://Assets/Sprites/Backgrounds/city 8/2.png" id="33_0jq01"]
 [ext_resource type="PackedScene" uid="uid://b1na482f6cji2" path="res://Assets/Scenes/PauseMenu.tscn" id="34_kx6e1"]
 [ext_resource type="PackedScene" uid="uid://b7pim77m3rnfd" path="res://Assets/Scenes/PlayerUI.tscn" id="36_udblq"]
 [ext_resource type="Texture2D" uid="uid://d3o74n4h0xtpo" path="res://Assets/Sprites/objects/Pillars/3_1.png" id="37_a6hd7"]
@@ -5672,10 +5670,11 @@ tile_set = SubResource("TileSet_5p4pk")
 [node name="Player" parent="." instance=ExtResource("6_lkwjt")]
 z_index = 1
 position = Vector2(131, 384)
+scale = Vector2(0.79, 0.79)
 game_over_screen_scene = ExtResource("32_dbxsu")
 
 [node name="OneWayPlatform" type="Sprite2D" parent="."]
-position = Vector2(-48, 335)
+position = Vector2(-45, 319)
 texture = ExtResource("26_q5bp2")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform"]
@@ -5685,27 +5684,64 @@ position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_y5s1q")
 one_way_collision = true
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[node name="OneWayPlatform2" type="Sprite2D" parent="."]
+position = Vector2(-14, 319)
+texture = ExtResource("26_q5bp2")
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform2"]
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(146.4445, 255.00002)
-scale = Vector2(2.994599, 3.0030863)
-texture = ExtResource("32_8ap1h")
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2(-355.00006, 354)
-scale = Vector2(3.0019288, 3.0138888)
-texture = ExtResource("33_0jq01")
-offset = Vector2(167.4109, -35.08757)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform2/StaticBody2D"]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_y5s1q")
+one_way_collision = true
 
 [node name="PauseMenu" parent="." instance=ExtResource("34_kx6e1")]
 
 [node name="PlayerUI" parent="." instance=ExtResource("36_udblq")]
 unique_name_in_owner = true
+
+[node name="Enemy_1" parent="." instance=ExtResource("41_xj2rt")]
+z_index = 1
+position = Vector2(-540, 383)
+scale = Vector2(0.87, 0.918)
+
+[node name="Enemy_2" parent="." instance=ExtResource("41_xj2rt")]
+z_index = 1
+position = Vector2(-279, 385.00003)
+scale = Vector2(0.87, 0.918)
+
+[node name="Enemy_3" parent="." instance=ExtResource("41_xj2rt")]
+z_index = 1
+position = Vector2(466, 385.00003)
+scale = Vector2(0.87, 0.918)
+
+[node name="Enemy_4" parent="." instance=ExtResource("41_xj2rt")]
+z_index = 1
+position = Vector2(922, 385.00003)
+scale = Vector2(0.87, 0.918)
+
+[node name="Enemy_5" parent="." instance=ExtResource("41_xj2rt")]
+z_index = 1
+position = Vector2(1219, 385.00003)
+scale = Vector2(0.87, 0.918)
+
+[node name="Enemy_6" parent="." instance=ExtResource("41_xj2rt")]
+z_index = 1
+position = Vector2(1721.0001, 383.00003)
+scale = Vector2(0.87, 0.918)
+
+[node name="Enemy_7" parent="." instance=ExtResource("41_xj2rt")]
+z_index = 1
+position = Vector2(1495.0001, 384.00003)
+scale = Vector2(0.87, 0.918)
+
+[node name="Enemy_8" parent="." instance=ExtResource("41_xj2rt")]
+z_index = 1
+position = Vector2(2011, 385)
+scale = Vector2(0.87, 0.918)
+
+[node name="Door" parent="." instance=ExtResource("46_y5s1q")]
+position = Vector2(2701, 240)
 
 [node name="Decorations" type="Node2D" parent="."]
 
@@ -5779,38 +5815,3 @@ tile_set = SubResource("TileSet_gj1tt")
 [node name="1" type="Sprite2D" parent="Decorations"]
 position = Vector2(1898, 359)
 texture = ExtResource("42_q5bp2")
-
-[node name="Enemy_1" parent="." instance=ExtResource("41_xj2rt")]
-position = Vector2(-540, 383)
-scale = Vector2(0.71999633, 0.76000005)
-
-[node name="Enemy_2" parent="." instance=ExtResource("41_xj2rt")]
-position = Vector2(-279, 385.00003)
-scale = Vector2(0.71999633, 0.76000005)
-
-[node name="Enemy_3" parent="." instance=ExtResource("41_xj2rt")]
-position = Vector2(466, 385.00003)
-scale = Vector2(0.71999633, 0.76000005)
-
-[node name="Enemy_4" parent="." instance=ExtResource("41_xj2rt")]
-position = Vector2(922, 385.00003)
-scale = Vector2(0.71999633, 0.76000005)
-
-[node name="Enemy_5" parent="." instance=ExtResource("41_xj2rt")]
-position = Vector2(1219, 385.00003)
-scale = Vector2(0.71999633, 0.76000005)
-
-[node name="Enemy_6" parent="." instance=ExtResource("41_xj2rt")]
-position = Vector2(1721.0001, 383.00003)
-scale = Vector2(0.71999633, 0.76000005)
-
-[node name="Enemy_7" parent="." instance=ExtResource("41_xj2rt")]
-position = Vector2(1495.0001, 384.00003)
-scale = Vector2(0.71999633, 0.76000005)
-
-[node name="Enemy_8" parent="." instance=ExtResource("41_xj2rt")]
-position = Vector2(2011, 385)
-scale = Vector2(0.71999633, 0.76000005)
-
-[node name="Door" parent="." instance=ExtResource("46_y5s1q")]
-position = Vector2(2701, 240)
