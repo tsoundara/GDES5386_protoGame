@@ -1,4 +1,4 @@
-[gd_scene load_steps=372 format=4 uid="uid://dhro26orw11l7"]
+[gd_scene load_steps=375 format=4 uid="uid://dhro26orw11l7"]
 
 [ext_resource type="Texture2D" uid="uid://da6jcageyp4ah" path="res://Assets/Sprites/Tiles/city/Tile_01.png" id="1_cno1q"]
 [ext_resource type="Script" uid="uid://c5x5p1hlm7p1k" path="res://Assets/Scripts/main.gd" id="1_i1jbo"]
@@ -237,6 +237,7 @@
 [ext_resource type="Texture2D" uid="uid://bi1364vd2o7i6" path="res://Assets/Sprites/objects/Other/Skateboard2.png" id="236_40i7d"]
 [ext_resource type="Texture2D" uid="uid://bw6b3ehi63nqp" path="res://Assets/Sprites/objects/Signboards/9.png" id="237_yul73"]
 [ext_resource type="Texture2D" uid="uid://b2gk56q7haeld" path="res://Assets/Sprites/objects/City_Road_Objects/Camera1.png" id="238_mar8x"]
+[ext_resource type="Script" uid="uid://b3a6424t1em6n" path="res://InteractionArea.gd" id="238_uwvpj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7lrv3"]
 texture = ExtResource("2_k3ao8")
@@ -5679,6 +5680,17 @@ _data = {
 &"new_animation": SubResource("Animation_8co2v")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghuny"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uwvpj"]
+font_size = 22
+font_color = Color(0.9647059, 0, 0, 1)
+stacked_outline_count = 1
+stacked_shadow_count = 2
+stacked_outline_0/size = 5
+stacked_shadow_0/offset = Vector2(1, 8)
+stacked_shadow_1/offset = Vector2(1, -6)
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_i1jbo")
 
@@ -6289,6 +6301,7 @@ position = Vector2(5161, 534)
 texture = ExtResource("191_gewgk")
 
 [node name="Building" type="Node2D" parent="City"]
+z_index = -1
 
 [node name="Tile76" type="Sprite2D" parent="City/Building"]
 z_index = 2
@@ -10090,7 +10103,7 @@ scale = Vector2(1.3333334, 1.725)
 texture = ExtResource("234_ghuny")
 
 [node name="16" type="Sprite2D" parent="City"]
-position = Vector2(7233.9995, 411.00003)
+position = Vector2(7237, 406.99997)
 rotation = 3.126749
 scale = Vector2(4.8476563, 4.8476563)
 texture = ExtResource("235_32knf")
@@ -10127,6 +10140,7 @@ position = Vector2(7208, 561)
 next_level_path = "res://Assets/Scenes/second_level.tscn"
 
 [node name="NPC" type="Node2D" parent="."]
+z_index = -1
 
 [node name="Npc3" parent="NPC" instance=ExtResource("125_p7yo7")]
 position = Vector2(4205, 560)
@@ -10273,5 +10287,24 @@ position = Vector2(6111, 561)
 
 [node name="npc31" parent="NPC" instance=ExtResource("220_085i1")]
 position = Vector2(6233, 562)
+
+[node name="InteractionArea" type="Area2D" parent="."]
+position = Vector2(49, 506)
+script = ExtResource("238_uwvpj")
+interaction_message = "Get to the Police Station"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("RectangleShape2D_ghuny")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="InteractionArea"]
+
+[node name="MessageLabel" type="Label" parent="InteractionArea/CanvasLayer"]
+offset_left = 479.0
+offset_top = 175.0
+offset_right = 735.0
+offset_bottom = 206.0
+text = "Get to the Police Station"
+label_settings = SubResource("LabelSettings_uwvpj")
+metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="KillZone" to="." method="_on_kill_zone_body_entered"]

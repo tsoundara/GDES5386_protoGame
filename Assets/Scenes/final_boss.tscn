@@ -187,25 +187,26 @@ animations = [{
 size = Vector2(116, 144)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iq6rc"]
-radius = 126.1943
+radius = 146.00342
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_152vv"]
+size = Vector2(35, 35)
 
 [node name="FinalBoss" type="CharacterBody2D"]
 script = ExtResource("1_152vv")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(15, -72)
+[node name="BossAnimatedSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(12, -89)
 scale = Vector2(1.2313433, 1)
 sprite_frames = SubResource("SpriteFrames_akh2v")
-animation = &"Attack"
-frame_progress = 0.88756245
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(6, -56)
+position = Vector2(3, -71)
 shape = SubResource("RectangleShape2D_iq6rc")
 
 [node name="DetectionArea" type="Area2D" parent="."]
+position = Vector2(10, -26)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 position = Vector2(-3, -52)
@@ -214,10 +215,10 @@ shape = SubResource("CircleShape2D_iq6rc")
 [node name="AttackArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(54, -90)
+position = Vector2(49, -92)
 shape = SubResource("RectangleShape2D_152vv")
 
-[node name="AttackColldownTimer" type="Timer" parent="."]
+[node name="AttackCooldownTimer" type="Timer" parent="."]
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
