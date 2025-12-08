@@ -14,7 +14,7 @@ var current_health: int
 
 var default_zoom := Vector2(1.0, 1.0)
 var zoomed_in := Vector2(2.0, 2.0)
-@onready var camera: Camera2D = $Camera2D # Corrected to use $Camera2D
+@onready var camera: Camera2D = $Camera2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_area: Area2D = $AttackArea
@@ -37,13 +37,13 @@ func _input(event: InputEvent) -> void:
 		print("Both done:", Player.has_interacted_all(["letters_dialog", "tv_dialog"]))
 
 func _ready() -> void:
-	# 💡 FIX 1: Current health must be set BEFORE initializing the UI!
+	# Current health must be set BEFORE initializing the UI!
 	current_health = max_health
 	
 	# This ensures the health label shows "5 / 5" at the start of the game.
 	if is_instance_valid(ui) and ui.has_method("initialize_ui"):
 		# We now pass the current health and score (0) to initialize the UI.
-		#The UI is initialized *every time* the Player scene loads.
+		# The UI is initialized every time the Player scene loads.
 		ui.initialize_ui(max_health)
 	else:
 		print("ERROR: Player UI node (%PlayerUI) not found or script is missing!")
@@ -53,7 +53,7 @@ func _ready() -> void:
 	
 	var current_scene_name = get_tree().current_scene.name
 	print(current_scene_name)
-	if current_scene_name == "Start_level":
+	if ((current_scene_name == "Start_level") or (current_scene_name == "CommissionersOffice")):
 		camera.zoom = zoomed_in
 	else:
 		camera.zoom = default_zoom
@@ -64,7 +64,7 @@ func take_damage(amount: int, knockback_force: Vector2) -> void:
 	if current_health < 0:
 		current_health = 0
 		
-   # 💡 FIX 2: UPDATE UI DISPLAY ON DAMAGE
+	# UPDATE UI DISPLAY ON DAMAGE
 	# This call tells the UI script to update the number immediately.
 	if is_instance_valid(ui) and ui.has_method("update_health"):
 		ui.update_health(current_health)
@@ -107,7 +107,7 @@ func _physics_process(_delta: float) -> void:
 			velocity.x = direction * speed
 			animated_sprite.flip_h = direction < 0
 			
-			# 💡 FIX: Mirror the Attack Hitbox 
+			# Mirror the Attack Hitbox 
 			# We use sign(direction) to get 1 (right) or -1 (left)
 			# This multiplies the base offset to move the hitbox
 			attack_area.position.x = attack_offset_x * sign(direction)
@@ -168,14 +168,14 @@ func die() -> void:
 	await animated_sprite.animation_finished
 	queue_free()
 
-# 🚨 FIX 3: This function should only handle damage and *check* for death, 
+# This function should only handle damage and *check* for death, 
 # not handle the scene reload itself unless you are doing a soft respawn.
 # We only want to take damage (1) and call die() if health hits zero.
 func take_damage_and_respawn() -> void:
-	# 1. Deduct 1 health (assuming the kill zone is lethal)
+	# Deduct 1 health (assuming the kill zone is lethal)
 	take_damage(1, Vector2.ZERO)
 	
-	# 2. If the player is still alive after the damage, teleport them back.
+	# If the player is still alive after the damage, teleport them back.
 	if current_health > 0:
 		set_physics_process(false)
 		is_attacking = false
@@ -183,7 +183,7 @@ func take_damage_and_respawn() -> void:
 		velocity = Vector2.ZERO
 		global_position = respawn_point_position
 		
-		# 💡 FIX 4: Update UI after a soft respawn/teleport back to checkpoint
+		# Update UI after a soft respawn/teleport back to checkpoint
 		if is_instance_valid(ui) and ui.has_method("update_health"):
 			ui.update_health(current_health)
 			
@@ -191,12 +191,12 @@ func take_damage_and_respawn() -> void:
 	# NOTE: If current_health <= 0, the take_damage call above already called die().
 		
 func win() -> void:
-	# 1. Disable player movement and input
+	# Disable player movement and input
 	set_physics_process(false)
 	set_process_input(false)
-	# 2. Stop all input/processing in the game world
+	# Stop all input/processing in the game world
 	get_tree().paused = true
-	# 3. Instantiate and display the Win Screen
+	# Instantiate and display the Win Screen
 	if win_screen_scene:
 		var win_screen_instance = win_screen_scene.instantiate()
 		get_tree().root.add_child(win_screen_instance)
