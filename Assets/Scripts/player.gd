@@ -32,8 +32,8 @@ func _input(event: InputEvent) -> void:
 		
 	# Check dialog progress
 	if event.is_action_pressed("check_progress"):
-		print("Letters done:", Player.mark_interacted("letters_dialog"))
-		print("TV done:", Player.mark_interacted("tv_dialog"))
+		print("Letters done:", "letters_dialog" in Player.interacted_objects)
+		print("TV done:", "tv_dialog" in Player.interacted_objects)
 		print("Both done:", Player.has_interacted_all(["letters_dialog", "tv_dialog"]))
 
 func _ready() -> void:

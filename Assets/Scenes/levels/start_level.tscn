@@ -30,11 +30,11 @@
 [ext_resource type="Texture2D" uid="uid://b8e8r7tlyycpb" path="res://Assets/Sprites/Tiles/city/Tile_62.png" id="25_1qh2n"]
 [ext_resource type="Texture2D" uid="uid://cita62mwxp32j" path="res://Assets/Sprites/objects/house/chair.png" id="26_3388g"]
 [ext_resource type="Texture2D" uid="uid://c0a8dwe87atnm" path="res://Assets/Sprites/objects/house/tv.png" id="29_cnvau"]
-[ext_resource type="Texture2D" uid="uid://cy7t335bhmhnj" path="res://Assets/Sprites/objects/house/paper_stack.png" id="29_to84q"]
+[ext_resource type="Texture2D" uid="uid://cy7t335bhmhnj" path="res://Assets/Sprites/objects/office/paper_stack.png" id="29_to84q"]
 [ext_resource type="Texture2D" uid="uid://lwswtlyid8p6" path="res://Assets/Sprites/objects/house/tv stand.png" id="30_to84q"]
 [ext_resource type="PackedScene" uid="uid://dxqkg57lf77mt" path="res://Assets/Scenes/dialog/dialog_player.tscn" id="31_cnvau"]
 [ext_resource type="PackedScene" uid="uid://b7pim77m3rnfd" path="res://Assets/Scenes/PlayerUI.tscn" id="34_dytsh"]
-[ext_resource type="Texture2D" uid="uid://n0rlsdo3kdbt" path="res://Assets/Sprites/UI/move.png" id="34_ynqqd"]
+[ext_resource type="Texture2D" uid="uid://b8yi3m8rhkswl" path="res://Assets/Sprites/UI/move.png" id="34_ynqqd"]
 [ext_resource type="Texture2D" uid="uid://cdtlg3w5ok1uh" path="res://Assets/Sprites/UI/interact.png" id="35_ejdac"]
 [ext_resource type="Texture2D" uid="uid://bfvbrov3it5gj" path="res://Assets/Sprites/Tiles/bar street/Tiles_63.png" id="37_5xms7"]
 

@@ -68,6 +68,7 @@ func _input(event):
 			print("=== INTERACTED OBJECTS ===")
 			print(Player.interacted_objects)
 			print("==========================")
+		print("Dialog key is: ", dialog_key)
 
 # Search parent nodes for node with ShaderMaterial
 func _find_outline_target_upwards(node: Node) -> Node:
