@@ -294,32 +294,37 @@ script = ExtResource("1_rwlbr")
 [node name="EnemyAnimatedSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -64)
 sprite_frames = SubResource("SpriteFrames_7xaro")
-animation = &"Attack2"
-frame = 3
-frame_progress = 1.0
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-2, -33.375)
 shape = SubResource("RectangleShape2D_7k104")
 
 [node name="DetectionArea" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+visible = false
 position = Vector2(1, -37)
 shape = SubResource("CircleShape2D_rwlbr")
 
 [node name="AttackArea" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+visible = false
 position = Vector2(-1.1920929e-07, -44)
 scale = Vector2(1, 0.8063409)
 shape = SubResource("RectangleShape2D_r55eg")
 
 [node name="GroundCheckRayCast" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(14, -1)
 target_position = Vector2(0, 20)
 
 [node name="WallCheckRayCast" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(0, -37)
 target_position = Vector2(32, 0)
 
