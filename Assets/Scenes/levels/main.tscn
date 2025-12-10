@@ -1,4 +1,4 @@
-[gd_scene load_steps=372 format=4 uid="uid://dhro26orw11l7"]
+[gd_scene load_steps=370 format=4 uid="uid://dhro26orw11l7"]
 
 [ext_resource type="Texture2D" uid="uid://da6jcageyp4ah" path="res://Assets/Sprites/Tiles/city/Tile_01.png" id="1_cno1q"]
 [ext_resource type="Script" uid="uid://c5x5p1hlm7p1k" path="res://Assets/Scripts/main.gd" id="1_i1jbo"]
@@ -143,8 +143,6 @@
 [ext_resource type="Texture2D" uid="uid://dcfm034jc3kjy" path="res://Assets/Sprites/objects/Trees/Tree2.png" id="115_7onjj"]
 [ext_resource type="Texture2D" uid="uid://mtwmr4hgn7on" path="res://Assets/Sprites/objects/Other/Skateboard1.png" id="116_pylca"]
 [ext_resource type="Texture2D" uid="uid://dfu2w2a464dm" path="res://Assets/Sprites/objects/Other/Rapm3.png" id="117_7onjj"]
-[ext_resource type="Texture2D" uid="uid://dwpwbs5cjlc3p" path="res://Assets/Sprites/UI/Puch.png" id="119_p2usd"]
-[ext_resource type="Texture2D" uid="uid://catb70oe4ouhu" path="res://Assets/Sprites/UI/jump.png" id="120_3pau4"]
 [ext_resource type="Texture2D" uid="uid://bswja7el5k4og" path="res://Assets/Sprites/objects/Other/Ramp2.png" id="123_g3r3s"]
 [ext_resource type="Texture2D" uid="uid://cc458afi8xndj" path="res://Assets/Sprites/objects/Trees/Tree4.png" id="124_khsip"]
 [ext_resource type="Texture2D" uid="uid://csna8bphedgao" path="res://Assets/Sprites/objects/Trees/Tree3.png" id="125_mgut0"]
@@ -5871,13 +5869,11 @@ texture = ExtResource("117_7onjj")
 z_index = 1
 position = Vector2(332.99997, 437)
 scale = Vector2(0.19656673, 0.21696815)
-texture = ExtResource("119_p2usd")
 
 [node name="Random Objects8" type="Sprite2D" parent="Map Objects"]
 z_index = 1
 position = Vector2(713, 517)
 scale = Vector2(0.19656673, 0.21696815)
-texture = ExtResource("120_3pau4")
 
 [node name="Random Objects11" type="Sprite2D" parent="Map Objects"]
 position = Vector2(1845.9999, 523)
@@ -6153,7 +6149,7 @@ position = Vector2(3589, 362)
 texture = ExtResource("147_n1jkm")
 
 [node name="Pillar3" type="Sprite2D" parent="Map Objects"]
-position = Vector2(3636, 545)
+position = Vector2(3636, 539)
 texture = ExtResource("146_pdsl1")
 
 [node name="64x642" type="Sprite2D" parent="Map Objects"]
@@ -6173,7 +6169,7 @@ position = Vector2(3636, 467)
 texture = ExtResource("151_an5as")
 
 [node name="9" type="Sprite2D" parent="Map Objects"]
-position = Vector2(3589, 351)
+position = Vector2(3589, 352)
 texture = ExtResource("152_rwifr")
 
 [node name="42" type="Sprite2D" parent="Map Objects"]

@@ -175,7 +175,7 @@
 [ext_resource type="Texture2D" uid="uid://dk106c66bc1ll" path="res://Assets/Sprites/objects/Barriers/4_4.png" id="155_oqor1"]
 [ext_resource type="Texture2D" uid="uid://c2ncpq1l5qh03" path="res://Assets/Sprites/objects/City_Road_Objects/Camera3.png" id="158_1gu4w"]
 [ext_resource type="Texture2D" uid="uid://0xj58ehmu85d" path="res://Assets/Sprites/objects/Graffiti/2Squad13.png" id="159_tag6f"]
-[ext_resource type="Texture2D" uid="uid://sxcr8i4iv13" path="res://Assets/Sprites/UI/SpaceBar.png" id="160_3baq3"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/UI/Shift.png" id="160_3baq3"]
 [ext_resource type="Texture2D" uid="uid://cbgye2w8l16yw" path="res://Assets/Sprites/UI/UPArrow.png" id="160_40i7d"]
 [ext_resource type="Texture2D" uid="uid://b2g6h6l416jmu" path="res://Assets/Sprites/objects/Road signs/1.png" id="161_570ok"]
 [ext_resource type="Texture2D" uid="uid://c6vkycnyadfgu" path="res://Assets/Sprites/objects/Stones/1.png" id="162_wwq2h"]
@@ -6158,8 +6158,8 @@ position = Vector2(3270.9998, 449)
 scale = Vector2(1.4123874, 1.5589772)
 texture = ExtResource("147_wwq2h")
 
-[node name="SpaceBar" type="Sprite2D" parent="Map Objects"]
-position = Vector2(281, 504)
+[node name="Shift" type="Sprite2D" parent="Map Objects"]
+position = Vector2(375, 484)
 scale = Vector2(2.625, 2.625)
 texture = ExtResource("160_3baq3")
 
