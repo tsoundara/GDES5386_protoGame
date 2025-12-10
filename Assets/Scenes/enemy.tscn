@@ -294,7 +294,7 @@ script = ExtResource("1_rwlbr")
 [node name="EnemyAnimatedSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -64)
 sprite_frames = SubResource("SpriteFrames_7xaro")
-animation = &"Idle"
+animation = &"Walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, -33.375)

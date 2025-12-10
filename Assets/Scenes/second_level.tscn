@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=4 uid="uid://b2wqec8acn5nq"]
+[gd_scene load_steps=95 format=4 uid="uid://b2wqec8acn5nq"]
 
 [ext_resource type="Texture2D" uid="uid://c2xdio2i8ybe6" path="res://Assets/Sprites/Tiles/residential street/Tile_27.png" id="1_ahag5"]
 [ext_resource type="Texture2D" uid="uid://ckm7aad6q6d13" path="res://Assets/Sprites/Tiles/residential street/Tile_01.png" id="1_r44lk"]
@@ -52,6 +52,8 @@
 [ext_resource type="Texture2D" uid="uid://tt1ojy7etpwt" path="res://Assets/Sprites/objects/Pillars/2_2.png" id="48_5ng4f"]
 [ext_resource type="Texture2D" uid="uid://bw82jff71ry2f" path="res://Assets/Sprites/objects/City_Road_Objects/Illumination6.png" id="48_73fmi"]
 [ext_resource type="Texture2D" uid="uid://cgto5m4y22isb" path="res://Assets/Sprites/objects/office/file_cabinets.png" id="49_vq0j8"]
+[ext_resource type="Script" uid="uid://b3a6424t1em6n" path="res://InteractionArea.gd" id="53_q7l6p"]
+[ext_resource type="FontFile" uid="uid://fihqsc3do34g" path="res://Assets/Sprites/UI/Pangolin-Regular.ttf" id="54_frm75"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q7l6p"]
 texture = ExtResource("1_r44lk")
@@ -5666,6 +5668,15 @@ sources/0 = SubResource("TileSetAtlasSource_q5bp2")
 sources/1 = SubResource("TileSetAtlasSource_y5s1q")
 sources/2 = SubResource("TileSetAtlasSource_gj1tt")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fu5mm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5qy7q"]
+font = ExtResource("54_frm75")
+font_size = 22
+font_color = Color(0.9647059, 0, 0, 1)
+outline_size = 23
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Second_Level" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -5725,7 +5736,7 @@ position = Vector2(2011, 385)
 scale = Vector2(0.87, 0.918)
 
 [node name="Door" parent="." instance=ExtResource("46_y5s1q")]
-position = Vector2(2777, 241)
+position = Vector2(2704, 240)
 next_level_path = "res://Assets/Scenes/levels/commissioners_office.tscn"
 
 [node name="Decorations" type="Node2D" parent="."]
@@ -5986,3 +5997,43 @@ texture = ExtResource("48_73fmi")
 position = Vector2(-508, 365.00003)
 scale = Vector2(2.142857, 2.4411764)
 texture = ExtResource("49_vq0j8")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+position = Vector2(130, 343)
+script = ExtResource("53_q7l6p")
+interaction_message = "FIND THE COMMISIONER"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("RectangleShape2D_fu5mm")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="InteractionArea"]
+
+[node name="MessageLabel" type="Label" parent="InteractionArea/CanvasLayer"]
+offset_left = 446.0
+offset_top = 177.0
+offset_right = 702.0
+offset_bottom = 208.0
+text = "FIND THE COMMISIONER"
+label_settings = SubResource("LabelSettings_5qy7q")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="InteractionArea2" type="Area2D" parent="."]
+position = Vector2(2630, 203)
+script = ExtResource("53_q7l6p")
+interaction_message = "TIME TO MAKE THEM PAY"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea2"]
+shape = SubResource("RectangleShape2D_fu5mm")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="InteractionArea2"]
+
+[node name="MessageLabel" type="Label" parent="InteractionArea2/CanvasLayer"]
+offset_left = 445.0
+offset_top = 177.0
+offset_right = 701.0
+offset_bottom = 208.0
+text = "TIME TO MAKE THEM PAY"
+label_settings = SubResource("LabelSettings_5qy7q")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
