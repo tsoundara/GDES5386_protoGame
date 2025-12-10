@@ -8,6 +8,9 @@ extends CharacterBody2D
 @export var attack_range: float = 60.0
 @export var attack_cooldown_time: float = 1.5
 @export var attack_hitbox_offset_x: float = 40.0 # Distance of the attack box from the boss center (facing right)
+@export var player_knockback_x: float = 500.0 # Horizontal force applied to player on hit
+@export var player_knockback_y: float = -50.0 # Vertical force applied (upwards)
+@export var win_screen_scene: PackedScene # Reference to the WinScreen.tscn to load on death
 
 # --- NODE REFERENCES ---
 @onready var animated_sprite: AnimatedSprite2D = $BossAnimatedSprite
@@ -132,8 +135,9 @@ func _apply_damage(body: Node) -> void:
 	if body.has_method("take_damage"):
 		#// Deal 1 HP damage
 		var knockback_direction = sign(body.global_position.x - global_position.x)
-		var knockback_force = Vector2(knockback_direction * 500, -50)
+		var knockback_force = Vector2(knockback_direction * player_knockback_x, player_knockback_y)
 		body.take_damage(2, knockback_force)
+	attack_area.monitoring = false
 
 # --- BOSS STATS AND DAMAGE ---
 func take_damage(amount: int, knockback_force: Vector2) -> void:
@@ -163,8 +167,22 @@ func die() -> void:
 	attack_area.monitoring = false
 	health_bar.hide()
 	
-	#// Wait for death animation, then remove the boss
+	# 🏆 WIN CONDITION: Wait for death animation, then load the win screen
 	await animated_sprite.animation_finished
+	
+	# 1. Check if the scene is set
+	if win_screen_scene:
+		# 2. Pause the game
+		get_tree().paused = true
+		
+		# 3. Instantiate and add the Win Screen to the scene tree root
+		var win_screen_instance = win_screen_scene.instantiate()
+		get_tree().root.add_child(win_screen_instance)
+		print("Boss defeated. Displaying Win Screen.")
+	else:
+		print("ERROR: Win Screen Scene not set in Boss Inspector!")
+		
+	# 4. Remove the boss from the scene
 	queue_free()
 
 
