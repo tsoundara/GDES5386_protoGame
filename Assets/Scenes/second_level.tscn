@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=4 uid="uid://b2wqec8acn5nq"]
+[gd_scene load_steps=95 format=4 uid="uid://b2wqec8acn5nq"]
 
 [ext_resource type="Texture2D" uid="uid://c2xdio2i8ybe6" path="res://Assets/Sprites/Tiles/residential street/Tile_27.png" id="1_ahag5"]
 [ext_resource type="Texture2D" uid="uid://ckm7aad6q6d13" path="res://Assets/Sprites/Tiles/residential street/Tile_01.png" id="1_r44lk"]
@@ -43,9 +43,17 @@
 [ext_resource type="PackedScene" uid="uid://bw28p5nhmkosm" path="res://Assets/Scenes/enemy.tscn" id="41_xj2rt"]
 [ext_resource type="Texture2D" uid="uid://cx1fihvny8sy1" path="res://Assets/Sprites/objects/Vending machines/1.png" id="42_q5bp2"]
 [ext_resource type="Texture2D" uid="uid://dy0mwpxs6ryc0" path="res://Assets/Sprites/Tiles/residential street/Tile_59.png" id="42_y5euw"]
-[ext_resource type="Texture2D" uid="uid://csjeuli81ob15" path="res://Assets/Sprites/objects/Pillars/1_1.png" id="45_y5s1q"]
+[ext_resource type="Texture2D" uid="uid://dd4tntgviyuhb" path="res://Assets/Sprites/objects/house/table or desk.png" id="44_yjfph"]
+[ext_resource type="PackedScene" uid="uid://hm84t060kwdh" path="res://Assets/Scenes/one_way_platform.tscn" id="45_q5bp2"]
+[ext_resource type="Texture2D" uid="uid://dsrdqhybyauc6" path="res://Assets/Sprites/objects/Other/Box.png" id="45_vq0j8"]
 [ext_resource type="Texture2D" uid="uid://6iv2ekuq2lc8" path="res://Assets/Sprites/objects/Pillars/2_1.png" id="46_gj1tt"]
 [ext_resource type="PackedScene" uid="uid://b75spgipvnq75" path="res://Assets/Scenes/Door.tscn" id="46_y5s1q"]
+[ext_resource type="Texture2D" uid="uid://c2ncpq1l5qh03" path="res://Assets/Sprites/objects/City_Road_Objects/Camera3.png" id="47_xs8ho"]
+[ext_resource type="Texture2D" uid="uid://tt1ojy7etpwt" path="res://Assets/Sprites/objects/Pillars/2_2.png" id="48_5ng4f"]
+[ext_resource type="Texture2D" uid="uid://bw82jff71ry2f" path="res://Assets/Sprites/objects/City_Road_Objects/Illumination6.png" id="48_73fmi"]
+[ext_resource type="Texture2D" uid="uid://cgto5m4y22isb" path="res://Assets/Sprites/objects/office/file_cabinets.png" id="49_vq0j8"]
+[ext_resource type="Script" uid="uid://b3a6424t1em6n" path="res://InteractionArea.gd" id="53_q7l6p"]
+[ext_resource type="FontFile" uid="uid://fihqsc3do34g" path="res://Assets/Sprites/UI/Pangolin-Regular.ttf" id="54_frm75"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q7l6p"]
 texture = ExtResource("1_r44lk")
@@ -5660,6 +5668,15 @@ sources/0 = SubResource("TileSetAtlasSource_q5bp2")
 sources/1 = SubResource("TileSetAtlasSource_y5s1q")
 sources/2 = SubResource("TileSetAtlasSource_gj1tt")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fu5mm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5qy7q"]
+font = ExtResource("54_frm75")
+font_size = 22
+font_color = Color(0.9647059, 0, 0, 1)
+outline_size = 23
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Second_Level" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -5670,6 +5687,7 @@ tile_set = SubResource("TileSet_5p4pk")
 z_index = 1
 position = Vector2(131, 384)
 scale = Vector2(0.79, 0.79)
+jump_velocity = -450.0
 game_over_screen_scene = ExtResource("32_dbxsu")
 
 [node name="PauseMenu" parent="." instance=ExtResource("34_kx6e1")]
@@ -5718,7 +5736,7 @@ position = Vector2(2011, 385)
 scale = Vector2(0.87, 0.918)
 
 [node name="Door" parent="." instance=ExtResource("46_y5s1q")]
-position = Vector2(2701, 240)
+position = Vector2(2704, 240)
 next_level_path = "res://Assets/Scenes/levels/commissioners_office.tscn"
 
 [node name="Decorations" type="Node2D" parent="."]
@@ -5790,14 +5808,232 @@ position = Vector2(1, 0)
 tile_map_data = PackedByteArray("AADw/xYAAQAdABQAAADw/xcAAQAdABUAAADx/xYAAQAeABQAAADx/xcAAQAeABUAAADy/xYAAQAfABQAAADy/xcAAQAfABUAAADz/xYAAQAgABQAAADz/xcAAQAgABUAAADw/xUAAQAdABQAACDx/xUAAQAeABQAACDy/xUAAQAfABQAACDz/xUAAQAgABQAACDw/xQAAQAdABMAAADx/xQAAQAeABMAAAD2/xUAAQAcABUAABD2/xYAAQAcABUAABD2/xcAAQAcABUAABD3/xUAAQAbABQAAAD3/xYAAQAbABQAAAD3/xcAAQAaABUAAAD4/xUAAQAbABQAAAD4/xYAAQAbABQAAAD4/xcAAQAbABUAAAD5/xUAAQAcABQAAAD5/xYAAQAcABQAAAD5/xcAAQAcABUAAAD2/xQAAQAZABMAAAD3/xQAAQAaABMAAAD4/xQAAQAbABMAAAD5/xQAAQAcABMAAAD3/xMAAQAZABIAAAD4/xMAAQAaABIAAADy/xQAAQAfABMAAADz/xQAAQAgABMAAADx/xMAAQAdABIAAADy/xMAAQAeABIAAAACABYAAQAZAAIAABACABcAAQAYAAMAAAADABYAAQAZAAIAAAADABcAAQAZAAMAAAADABUAAQAZAAMAAAADABQAAQAZAAEAAAACABUAAQAZAAIAABACABQAAQAYAAEAAADi/xUAAQAaAAQAAADi/xYAAQAaAAUAAADi/xcAAQAaAAYAAADj/xUAAQAbAAQAAADj/xYAAQAbAAUAAADj/xcAAQAbAAYAAADk/xUAAQAcAAQAAADk/xYAAQAcAAUAAADk/xcAAQAcAAYAAADl/xUAAQAdAAQAAADl/xYAAQAdAAUAAADl/xcAAQAdAAYAAADa/xQAAQAVAAsAAADb/xQAAQAWAAsAAADZ/xUAAQAVAAsAAADa/xUAAQAWAAsAAADb/xUAAQAVAAsAAADc/xUAAQAWAAsAAADY/xQAAQATAAoAAADu/xYAAQAMAB0AAADu/xcAAQAMAB4AAADv/xYAAQANAB0AAADv/xcAAQANAB4AAAD6/xYAAQAMAB0AAAD6/xcAAQAMAB4AAAD7/xYAAQANAB0AAAD7/xcAAQANAB4AAAAEABYAAQAOAB8AAAAEABcAAQAOACAAAAAFABYAAQAPAB8AAAAFABcAAQAPACAAAAAWABcAAQAQACwAAAAXABcAAQARACwAAAAYABcAAQASACwAAAAZABcAAQATACwAAAAWABYAAQARACsAADAXABYAAQARACsAACAYABYAAQARACsAADAZABYAAQARACsAACAWABQAAQAQACoAAAAWABUAAQAQACsAAAAXABQAAQARACoAAAAXABUAAQARACsAAAAYABQAAQASACoAAAAYABUAAQASACsAAAAZABQAAQATACoAAAAZABUAAQATACsAAAANABQAAAAeAAYAAAANABUAAAAeAAcAAAAOABQAAAAfAAYAAAAOABUAAAAfAAcAAAAPABQAAAAgAAYAAAAPABUAAAAgAAcAAAAQABQAAAAhAAYAAAAQABUAAAAhAAcAAAAaABcAAQAOAC8AAAArABYAAQARABoAAAArABcAAQARABsAAAAsABYAAQASABoAAAAsABcAAQASABsAAAAtABYAAQATABoAAAAtABcAAQATABsAAAAuABYAAQAUABoAAAAuABcAAQAUABsAAAAvABYAAQAVABoAAAAvABcAAQAVABsAAAArABQAAQARABoAAAArABUAAQARABkAAAAsABQAAQASABoAAAAsABUAAQASABkAAAAtABQAAQATABoAAAAtABUAAQATABkAAAAuABQAAQAUABoAAAAuABUAAQAUABkAAAAvABQAAQAVABoAAAAvABUAAQAVABkAAAArABIAAQARABgAAAArABMAAQARABkAAAAsABIAAQASABgAAAAsABMAAQASABkAAAAtABIAAQATABgAAAAtABMAAQATABkAAAAuABIAAQAUABgAAAAuABMAAQAUABkAAAAvABIAAQAVABgAAAAvABMAAQAVABkAAAA1ABUAAQAVAA0AAAA1ABYAAQAVAA4AAAA1ABcAAQAVAA8AAAA2ABUAAQAWAA0AAAA2ABYAAQAWAA4AAAA2ABcAAQAWAA8AAAA3ABUAAQAXAA0AAAA3ABYAAQAXAA4AAAA3ABcAAQAXAA8AAAA4ABUAAQAYAA0AAAA4ABYAAQAYAA4AAAA4ABcAAQAYAA8AAAA5ABUAAQAZAA0AAAA5ABYAAQAZAA4AAAA5ABcAAQAZAA8AAAA6ABUAAQAaAA0AAAA6ABYAAQAaAA4AAAA6ABcAAQAaAA8AAAA7ABUAAQAbAA0AAAA7ABYAAQAbAA4AAAA7ABcAAQAbAA8AAAA8ABUAAQAcAA0AAAA8ABYAAQAcAA4AAAA8ABcAAQAcAA8AAAA9ABUAAQAdAA0AAAA9ABYAAQAdAA4AAAA9ABcAAQAdAA8AAAA+ABUAAQAeAA0AAAA+ABYAAQAeAA4AAAA+ABcAAQAeAA8AAAA/ABUAAQAfAA0AAAA/ABYAAQAfAA4AAAA/ABcAAQAfAA8AAABAABUAAQAgAA0AAABAABYAAQAgAA4AAABAABcAAQAgAA8AAAAeABYAAQASABQAAAAeABcAAQASABUAAAAfABYAAQATABQAAAAfABcAAQATABUAAAAgABYAAQAUABQAAAAgABcAAQAUABUAAAD9/xYAAQASABQAAAD9/xcAAQASABUAAAD+/xYAAQATABQAAAD+/xcAAQATABUAAAD//xYAAQAUABQAAAD//xcAAQAUABUAAADZ/xYAAQASABQAAADZ/xcAAQASABUAAADa/xYAAQATABQAAADa/xcAAQATABUAAADb/xYAAQAUABQAAADb/xcAAQAUABUAAABDABYAAQAWABUAAABDABcAAQAWABUAADBEABYAAQAXABUAAABEABcAAQAVABUAADBFABYAAQAUABQAAABFABcAAQAOAC8AAABPABUAAQASAAQAAABPABYAAQASAAUAAABPABcAAQASAAYAAABQABUAAQATAAQAAABQABYAAQATAAUAAABQABcAAQATAAYAAABRABUAAQAUAAQAAABRABYAAQAUAAUAAABRABcAAQAUAAYAAABSABUAAQAVAAQAAABSABYAAQAVAAUAAABSABcAAQAVAAYAAABkABUAAQAWAAQAAABkABYAAQAWAAUAAABkABcAAQAWAAYAAABlABUAAQAXAAQAAABlABYAAQAXAAUAAABlABcAAQAXAAYAAABmABUAAQAYAAQAAABmABYAAQAYAAUAAABmABcAAQAYAAYAAABnABUAAQAZAAQAAABnABYAAQAZAAUAAABnABcAAQAZAAYAAABZABUAAQAaAAIAAABZABYAAQAaAAMAAABZABcAAQAaAAMAAABaABUAAQAbAAIAAABaABYAAQAbAAMAAABaABcAAQAbAAMAAABbABUAAQAcAAIAAABbABYAAQAcAAMAAABbABcAAQAcAAMAAABcABUAAQAdAAIAAABcABYAAQAdAAMAAABcABcAAQAdAAMAAABFABQAAAAdAAYAAABGABQAAAAeAAYAAABHABQAAAAfAAYAAABIABQAAAAgAAYAAABJABQAAAAhAAYAAABKABQAAAAiAAYAAABLABQAAAAjAAYAAAAMABMAAAAdAAUAAAAMABQAAAAdAAYAAAAMABUAAAAdAAcAAAANABMAAAAeAAUAAAAOABMAAAAfAAUAAAAPABMAAAAgAAUAAAAQABMAAAAhAAUAAAARABMAAAAiAAUAAAARABQAAAAiAAYAAAARABUAAAAiAAcAAAASABMAAAAjAAUAAAASABQAAAAjAAYAAAASABUAAAAjAAcAAABtABAAAAAhAAsAAABtABEAAAAhAAwAAABtABIAAAAhAA0AAABtABMAAAAhAA4AAABtABQAAAAhAA8AAABtABUAAAAhABAAAABtABYAAAAhABEAAABuABAAAAAiAAsAAABuABEAAAAiAAwAAABuABIAAAAiAA0AAABuABMAAAAiAA4AAABuABQAAAAiAA8AAABuABUAAAAiABAAAABuABYAAAAiABEAAABvABAAAAAjAAsAAABvABEAAAAjAAwAAABvABIAAAAjAA0AAABvABMAAAAjAA4AAABvABQAAAAjAA8AAABvABUAAAAjABAAAABvABYAAAAjABEAAAByABAAAAAhAAsAABBxABAAAAAiAAsAABBwABAAAAAjAAsAABByABEAAAAhAAwAABBxABEAAAAiAAwAABBwABEAAAAjAAwAABByABIAAAAhAA0AABBxABIAAAAiAA0AABBwABIAAAAjAA0AABByABMAAAAhAA4AABBxABMAAAAiAA4AABBwABMAAAAjAA4AABByABQAAAAhAA8AABBxABQAAAAiAA8AABBwABQAAAAjAA8AABByABUAAAAhABAAABBxABUAAAAiABAAABBwABUAAAAjABAAABByABYAAAAhABEAABBxABYAAAAiABEAABBwABYAAAAjABEAABBMABYAAAARABsAAABMABcAAAARABwAAABNABYAAAASABsAAABNABcAAAASABwAAABFABUAAAAdAAcAAABGABUAAAAeAAcAAABHABUAAAAfAAcAAABIABUAAAAgAAcAAABJABUAAAAhAAcAAABKABUAAAAiAAcAAABLABUAAAAjAAcAAACBABQAAAAdAAYAAACBABUAAAAdAAcAAACCABQAAAAeAAYAAACCABUAAAAeAAcAAACDABQAAAAiAAYAAACDABUAAAAiAAcAAACEABQAAAAjAAYAAACEABUAAAAjAAcAAABZABQAAQAaAAEAAABaABQAAQAbAAEAAABbABQAAQAcAAEAAABcABQAAQAdAAEAAACGABUAAQAVABQAAACGABYAAQAVABUAAACHABUAAQAWABQAAACHABYAAQAWABUAAACIABUAAQAXABQAAACIABYAAQAXABUAAACGABcAAQAXABUAADCHABcAAQAWABUAADCIABcAAQAVABUAADBfABUAAQAVABQAAABfABYAAQAVABUAAABfABcAAQAXABUAADBgABUAAQAWABQAAABgABYAAQAWABUAAABgABcAAQAWABUAADBhABUAAQAXABQAAABhABYAAQAXABUAAABhABcAAQAVABUAADBCABUAAQAVABQAAABCABYAAQAVABUAAABCABcAAQAXABUAADBDABUAAQAWABMAAABEABUAAQAVABIAAAAkABUAAQAVABQAAAAkABYAAQAVABUAAAAkABcAAQAXABUAADAlABUAAQAWABMAAAAlABYAAQAWABUAAAAlABcAAQAWABUAADAmABUAAQAVABIAAAAmABYAAQAXABUAAAAmABcAAQAVABUAADApABUAAQAIAC8AAAApABYAAQAIADAAAAAqABUAAQAJAC8AAAAqABYAAQAJADAAAAApABMAAQAIAC8AAAApABQAAQAIADAAAAAqABMAAQAJAC8AAAAqABQAAQAJADAAAAAwABMAAQAIAC8AAAAwABQAAQAIADAAAAAxABMAAQAJAC8AAAAxABQAAQAJADAAAAAwABUAAQAIAC8AAAAwABYAAQAIADAAAAAxABUAAQAJAC8AAAAxABYAAQAJADAAAAAnABMAAQAIAC8AAAAnABQAAQAIADAAAAAoABMAAQAJAC8AAAAoABQAAQAJADAAAAAnABUAAQAIAC8AAAAnABYAAQAIADAAAAAoABUAAQAJAC8AAAAoABYAAQAJADAAAAAyABMAAQAIAC8AAAAyABQAAQAIADAAAAAzABMAAQAJAC8AAAAzABQAAQAJADAAAAAyABUAAQAIAC8AAAAyABYAAQAIADAAAAAzABUAAQAJAC8AAAAzABYAAQAJADAAAAB5ABMAAAAcACUAAAB5ABQAAAAcACYAAAB5ABUAAAAcACcAAAB6ABMAAAAdACUAAAB6ABQAAAAdACYAAAB6ABUAAAAdACcAAAB8ABIAAAAeACUAAAB8ABMAAAAeACYAAAB9ABUAAAAcACQAAAB+ABUAAAAdACQAAAA=")
 tile_set = SubResource("TileSet_gj1tt")
 
+[node name="TableOrDesk" type="Sprite2D" parent="Decorations"]
+position = Vector2(253, 367)
+texture = ExtResource("44_yjfph")
+
+[node name="Box" type="Sprite2D" parent="Decorations"]
+position = Vector2(2892, 224.5)
+scale = Vector2(1.22, 1.22)
+texture = ExtResource("45_vq0j8")
+
+[node name="Box2" type="Sprite2D" parent="Decorations"]
+position = Vector2(2853.52, 224.25)
+scale = Vector2(1.22, 1.22)
+texture = ExtResource("45_vq0j8")
+
+[node name="Box3" type="Sprite2D" parent="Decorations"]
+position = Vector2(2873, 196)
+scale = Vector2(1.22, 1.22)
+texture = ExtResource("45_vq0j8")
+
 [node name="1" type="Sprite2D" parent="Decorations"]
 position = Vector2(1898, 359)
 texture = ExtResource("42_q5bp2")
 
-[node name="11" type="Sprite2D" parent="."]
-position = Vector2(-226, 199)
-texture = ExtResource("45_y5s1q")
-
-[node name="21" type="Sprite2D" parent="."]
-position = Vector2(-193, 201)
+[node name="21" type="Sprite2D" parent="Decorations"]
+position = Vector2(2382, 321)
 texture = ExtResource("46_gj1tt")
+
+[node name="27" type="Sprite2D" parent="Decorations"]
+position = Vector2(2382, 148.40001)
+rotation = 3.1415927
+scale = Vector2(1, 1.2874997)
+texture = ExtResource("46_gj1tt")
+
+[node name="22" type="Sprite2D" parent="Decorations"]
+position = Vector2(2382, 290)
+texture = ExtResource("48_5ng4f")
+
+[node name="23" type="Sprite2D" parent="Decorations"]
+position = Vector2(2382, 258)
+scale = Vector2(1, 1.0625)
+texture = ExtResource("48_5ng4f")
+
+[node name="24" type="Sprite2D" parent="Decorations"]
+position = Vector2(2382, 227)
+texture = ExtResource("48_5ng4f")
+
+[node name="25" type="Sprite2D" parent="Decorations"]
+position = Vector2(2382, 196)
+texture = ExtResource("48_5ng4f")
+
+[node name="26" type="Sprite2D" parent="Decorations"]
+position = Vector2(2382, 180)
+texture = ExtResource("48_5ng4f")
+
+[node name="28" type="Sprite2D" parent="Decorations"]
+position = Vector2(2438, 321)
+texture = ExtResource("46_gj1tt")
+
+[node name="29" type="Sprite2D" parent="Decorations"]
+position = Vector2(2438, 148.4)
+rotation = 3.1415927
+scale = Vector2(1, 1.2874997)
+texture = ExtResource("46_gj1tt")
+
+[node name="30" type="Sprite2D" parent="Decorations"]
+position = Vector2(2438, 290)
+texture = ExtResource("48_5ng4f")
+
+[node name="41" type="Sprite2D" parent="Decorations"]
+position = Vector2(2438, 258)
+scale = Vector2(1, 1.0625)
+texture = ExtResource("48_5ng4f")
+
+[node name="42" type="Sprite2D" parent="Decorations"]
+position = Vector2(2438, 226.99997)
+texture = ExtResource("48_5ng4f")
+
+[node name="43" type="Sprite2D" parent="Decorations"]
+position = Vector2(2438, 195.99997)
+texture = ExtResource("48_5ng4f")
+
+[node name="44" type="Sprite2D" parent="Decorations"]
+position = Vector2(2438, 179.99997)
+texture = ExtResource("48_5ng4f")
+
+[node name="53" type="Sprite2D" parent="Decorations"]
+position = Vector2(2494, 273)
+texture = ExtResource("46_gj1tt")
+
+[node name="54" type="Sprite2D" parent="Decorations"]
+position = Vector2(2494, 148)
+rotation = 3.1415927
+scale = Vector2(1, 1.2874997)
+texture = ExtResource("46_gj1tt")
+
+[node name="55" type="Sprite2D" parent="Decorations"]
+position = Vector2(2494, 241.99998)
+texture = ExtResource("48_5ng4f")
+
+[node name="56" type="Sprite2D" parent="Decorations"]
+position = Vector2(2494, 209.99998)
+scale = Vector2(1, 1.0625)
+texture = ExtResource("48_5ng4f")
+
+[node name="57" type="Sprite2D" parent="Decorations"]
+position = Vector2(2494, 178.99998)
+texture = ExtResource("48_5ng4f")
+
+[node name="58" type="Sprite2D" parent="Decorations"]
+position = Vector2(2550, 273)
+texture = ExtResource("46_gj1tt")
+
+[node name="59" type="Sprite2D" parent="Decorations"]
+position = Vector2(2550, 148.00002)
+rotation = 3.1415927
+scale = Vector2(1, 1.2874997)
+texture = ExtResource("46_gj1tt")
+
+[node name="60" type="Sprite2D" parent="Decorations"]
+position = Vector2(2550, 242.00002)
+texture = ExtResource("48_5ng4f")
+
+[node name="61" type="Sprite2D" parent="Decorations"]
+position = Vector2(2550, 210.00002)
+scale = Vector2(1, 1.0625)
+texture = ExtResource("48_5ng4f")
+
+[node name="62" type="Sprite2D" parent="Decorations"]
+position = Vector2(2550, 179.00002)
+texture = ExtResource("48_5ng4f")
+
+[node name="45" type="Sprite2D" parent="Decorations"]
+position = Vector2(2318, 369)
+texture = ExtResource("46_gj1tt")
+
+[node name="46" type="Sprite2D" parent="Decorations"]
+position = Vector2(2318, 148.40001)
+rotation = 3.1415927
+scale = Vector2(1, 1.2874997)
+texture = ExtResource("46_gj1tt")
+
+[node name="47" type="Sprite2D" parent="Decorations"]
+position = Vector2(2318, 337)
+texture = ExtResource("48_5ng4f")
+
+[node name="48" type="Sprite2D" parent="Decorations"]
+position = Vector2(2318, 305)
+scale = Vector2(1, 1.0625)
+texture = ExtResource("48_5ng4f")
+
+[node name="49" type="Sprite2D" parent="Decorations"]
+position = Vector2(2318, 274)
+texture = ExtResource("48_5ng4f")
+
+[node name="50" type="Sprite2D" parent="Decorations"]
+position = Vector2(2318, 243)
+texture = ExtResource("48_5ng4f")
+
+[node name="51" type="Sprite2D" parent="Decorations"]
+position = Vector2(2318, 212)
+texture = ExtResource("48_5ng4f")
+
+[node name="52" type="Sprite2D" parent="Decorations"]
+position = Vector2(2318, 182)
+texture = ExtResource("48_5ng4f")
+
+[node name="OneWayPlatform" parent="." instance=ExtResource("45_q5bp2")]
+position = Vector2(386, 312)
+
+[node name="OneWayPlatform2" parent="." instance=ExtResource("45_q5bp2")]
+position = Vector2(45, 310)
+
+[node name="OneWayPlatform3" parent="." instance=ExtResource("45_q5bp2")]
+position = Vector2(722, 307)
+
+[node name="Camera3" type="Sprite2D" parent="."]
+position = Vector2(2898.0002, 140.00002)
+scale = Vector2(1.7307693, 1.7307693)
+texture = ExtResource("47_xs8ho")
+
+[node name="Illumination6" type="Sprite2D" parent="."]
+position = Vector2(45, 304)
+scale = Vector2(2.0625, 1)
+texture = ExtResource("48_73fmi")
+
+[node name="FileCabinets" type="Sprite2D" parent="."]
+position = Vector2(-508, 365.00003)
+scale = Vector2(2.142857, 2.4411764)
+texture = ExtResource("49_vq0j8")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+position = Vector2(130, 343)
+script = ExtResource("53_q7l6p")
+interaction_message = "FIND THE COMMISIONER"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("RectangleShape2D_fu5mm")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="InteractionArea"]
+
+[node name="MessageLabel" type="Label" parent="InteractionArea/CanvasLayer"]
+offset_left = 446.0
+offset_top = 177.0
+offset_right = 702.0
+offset_bottom = 208.0
+text = "FIND THE COMMISIONER"
+label_settings = SubResource("LabelSettings_5qy7q")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="InteractionArea2" type="Area2D" parent="."]
+position = Vector2(2630, 203)
+script = ExtResource("53_q7l6p")
+interaction_message = "TIME TO MAKE THEM PAY"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea2"]
+shape = SubResource("RectangleShape2D_fu5mm")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="InteractionArea2"]
+
+[node name="MessageLabel" type="Label" parent="InteractionArea2/CanvasLayer"]
+offset_left = 445.0
+offset_top = 177.0
+offset_right = 701.0
+offset_bottom = 208.0
+text = "TIME TO MAKE THEM PAY"
+label_settings = SubResource("LabelSettings_5qy7q")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true

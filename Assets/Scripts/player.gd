@@ -112,17 +112,12 @@ func _physics_process(_delta: float) -> void:
 		if direction != 0:
 			velocity.x = direction * speed
 			animated_sprite.flip_h = direction < 0
-			
-			# Mirror the Attack Hitbox 
-			# We use sign(direction) to get 1 (right) or -1 (left)
-			# This multiplies the base offset to move the hitbox
 			attack_area.position.x = attack_offset_x * sign(direction)
 			
 		else:
 			# Decelerate when no input is pressed
 			velocity.x = move_toward(velocity.x, 0, speed)
 	else:
-		# When attacking, stop the player from sliding
 		velocity.x = move_toward(velocity.x, 0, speed * _delta * 5)
 	
 	# Handle Animation State Logic

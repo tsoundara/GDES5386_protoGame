@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1p072giod7mi"
-path="res://.godot/imported/Special.png-365d13e16ab1492c005fa41bc3eba795.ctex"
+uid="uid://f2d8rsgg2iqe"
+path="res://.godot/imported/arrows.png-ba9350d4a28dcf77b62be005f0d50c10.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/enemy/Capitan/Special.png"
-dest_files=["res://.godot/imported/Special.png-365d13e16ab1492c005fa41bc3eba795.ctex"]
+source_file="res://Assets/Sprites/UI/arrows.png"
+dest_files=["res://.godot/imported/arrows.png-ba9350d4a28dcf77b62be005f0d50c10.ctex"]
 
 [params]
 

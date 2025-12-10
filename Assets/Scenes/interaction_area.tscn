@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvwinxl66decd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ehb73"]
+size = Vector2(95, 81)
+
+[node name="InteractionArea" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ehb73")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MessageLabel" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+metadata/_edit_use_anchors_ = true

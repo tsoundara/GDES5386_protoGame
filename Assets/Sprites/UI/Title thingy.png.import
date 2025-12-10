@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsfumqtdr54i6"
-path="res://.godot/imported/Recharge_1.png-a43e44738feb0fb3e248b50f93722afd.ctex"
+uid="uid://c2hb5cl3mjhx6"
+path="res://.godot/imported/Title thingy.png-a9bb450ddb3d6f4dc6c673edfc66f6bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/enemy/Capitan/Recharge_1.png"
-dest_files=["res://.godot/imported/Recharge_1.png-a43e44738feb0fb3e248b50f93722afd.ctex"]
+source_file="res://Assets/Sprites/UI/Title thingy.png"
+dest_files=["res://.godot/imported/Title thingy.png-a9bb450ddb3d6f4dc6c673edfc66f6bb.ctex"]
 
 [params]
 

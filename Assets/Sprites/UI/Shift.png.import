@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://durn45w1melrg"
-path="res://.godot/imported/Shot.png-2bd681b58ceab377de469b8825585fd6.ctex"
+uid="uid://cxbqrhliaw87b"
+path="res://.godot/imported/Shift.png-329c4c5ffb9467b0801d7877d54bee69.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/enemy/Capitan/Shot.png"
-dest_files=["res://.godot/imported/Shot.png-2bd681b58ceab377de469b8825585fd6.ctex"]
+source_file="res://Assets/Sprites/UI/Shift.png"
+dest_files=["res://.godot/imported/Shift.png-329c4c5ffb9467b0801d7877d54bee69.ctex"]
 
 [params]
 

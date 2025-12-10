@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://daoth2aq7hd73"]
+[gd_scene load_steps=24 format=4 uid="uid://daoth2aq7hd73"]
 
 [ext_resource type="Texture2D" uid="uid://dkk1drvpu5emf" path="res://Assets/Sprites/objects/Other/Buildings.png" id="2_2lsnc"]
 [ext_resource type="Texture2D" uid="uid://6v80rsk0tyba" path="res://Assets/Sprites/objects/City Street/mp_cs_buildings.png" id="3_a7870"]
@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dd4tntgviyuhb" path="res://Assets/Sprites/objects/house/table or desk.png" id="4_7wvr1"]
 [ext_resource type="PackedScene" uid="uid://b7pim77m3rnfd" path="res://Assets/Scenes/PlayerUI.tscn" id="4_c0a57"]
 [ext_resource type="Texture2D" uid="uid://dio46q14i7gik" path="res://Assets/Sprites/Tiles/residential street/Tile_78.png" id="4_l1ccl"]
-[ext_resource type="Texture2D" uid="uid://cy7t335bhmhnj" path="res://Assets/Sprites/objects/office/paper_stack.png" id="5_ipr44"]
+[ext_resource type="Texture2D" uid="uid://cy7t335bhmhnj" path="res://Assets/Sprites/objects/house/paper_stack.png" id="5_ipr44"]
 [ext_resource type="Texture2D" uid="uid://c0rmq4avx0kba" path="res://Assets/Sprites/objects/office/office_paper_work_32bit_img.png" id="6_h7esy"]
 [ext_resource type="Texture2D" uid="uid://dtvitosxt2pcq" path="res://Assets/Sprites/Tiles/bar street/Tiles_54.png" id="7_6yl4o"]
 [ext_resource type="Texture2D" uid="uid://bphq6x0si1gd" path="res://Assets/Sprites/Tiles/bar street/Tiles_59.png" id="8_3s63d"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://csab7twrw27sg" path="res://Assets/Sprites/objects/office/file_cabinets_full_open.png" id="15_ivf2y"]
 [ext_resource type="Shader" uid="uid://bfee5qkrmn0y0" path="res://Assets/Scripts/2D_outlines.gdshader" id="15_yydde"]
 [ext_resource type="Texture2D" uid="uid://bdsflhcah14ne" path="res://Assets/Sprites/objects/house/door.png" id="16_ctx1q"]
+[ext_resource type="PackedScene" uid="uid://cgu1bfeixihfb" path="res://Assets/Scenes/final_boss.tscn" id="18_1hwkl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uv5jc"]
 texture = ExtResource("2_2lsnc")
@@ -1291,3 +1292,6 @@ position = Vector2(434, 398)
 
 [node name="PlayerUI" parent="." instance=ExtResource("4_c0a57")]
 unique_name_in_owner = true
+
+[node name="FinalBoss" parent="." instance=ExtResource("18_1hwkl")]
+position = Vector2(634, 399)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8yi3m8rhkswl"
-path="res://.godot/imported/move.png-231e4472acc27064ae4f46130798a959.ctex"
+uid="uid://sxcr8i4iv13"
+path="res://.godot/imported/SpaceBar.png-ec92e282ea9a3662c8984edd01136f8b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/UI/move.png"
-dest_files=["res://.godot/imported/move.png-231e4472acc27064ae4f46130798a959.ctex"]
+source_file="res://Assets/Sprites/UI/SpaceBar.png"
+dest_files=["res://.godot/imported/SpaceBar.png-ec92e282ea9a3662c8984edd01136f8b.ctex"]
 
 [params]
 
