@@ -23,12 +23,15 @@ var is_attacking: bool = false
 var direction: float = 0.0 # Store the current input direction
 
 func _input(event: InputEvent) -> void:
-	# Only allow the attack input if the animation is not currently playing
 	if event.is_action_pressed("Attack") and not is_attacking:
 		is_attacking = true
 		animated_sprite.play("Attack")
 		# Activate the hitbox when the animation starts
 		attack_area.monitoring = true
+		
+		# Check for overlapping bodies immediately when the attack starts
+		_check_initial_overlap()
+
 		
 	# Check dialog progress
 	if event.is_action_pressed("check_progress"):
@@ -39,6 +42,7 @@ func _input(event: InputEvent) -> void:
 func _ready() -> void:
 	# Current health must be set BEFORE initializing the UI!
 	current_health = max_health
+	add_to_group("player")
 	
 	# This ensures the health label shows "5 / 5" at the start of the game.
 	if is_instance_valid(ui) and ui.has_method("initialize_ui"):
@@ -145,10 +149,30 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 func _on_attack_area_body_entered(body: Node) -> void:
 	if not is_attacking:
-		return# Only register hits during an attack
+		return
 	
 	if body.is_in_group("enemies"):
-		body.die()# Call the enemy's die() function
+		# Check if enemy is boss or regular enemy
+		if body.has_method("take_damage"):
+			# Boss
+			var knockback_dir = sign(body.global_position.x - global_position.x)
+			var knockback_force = Vector2(knockback_dir * 200, -100)
+			body.take_damage(1, knockback_force)
+		else:
+			# Regular enemy
+			body.die()
+
+func _check_initial_overlap() -> void:
+	var overlapping_bodies = attack_area.get_overlapping_bodies()
+	for body in overlapping_bodies:
+		if body.is_in_group("enemies"):
+			if body.has_method("take_damage"):
+				var knockback_dir = sign(body.global_position.x - global_position.x)
+				var knockback_force = Vector2(knockback_dir * 200, -100)
+				body.take_damage(1, knockback_force)
+			else:
+				body.die()
+			break
 
 func flash_red() -> void:
 	animated_sprite.modulate = Color(1, 0.3, 0.3)

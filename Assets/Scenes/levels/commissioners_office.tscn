@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://c6i4l63lmoe0d"]
+[gd_scene load_steps=22 format=4 uid="uid://c6i4l63lmoe0d"]
 
 [ext_resource type="Script" uid="uid://hl4nk2moafus" path="res://Assets/Scenes/levels/commissioners_office.gd" id="1_ivf2y"]
 [ext_resource type="Texture2D" uid="uid://dkk1drvpu5emf" path="res://Assets/Sprites/objects/Other/Buildings.png" id="2_2lsnc"]

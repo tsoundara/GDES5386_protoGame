@@ -216,6 +216,7 @@ position = Vector2(10, -26)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 position = Vector2(-10, -12)
+scale = Vector2(1.8, 1.8)
 shape = SubResource("CircleShape2D_iq6rc")
 
 [node name="AttackArea" type="Area2D" parent="."]
