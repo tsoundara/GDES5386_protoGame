@@ -29,7 +29,6 @@ var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _ready() -> void:
 	current_health = max_health
 	attack_cooldown_timer.wait_time = attack_cooldown_time
-	attack_cooldown_timer.start() # Start the timer immediately
 	animated_sprite.play("Idle")
 	
 	# Set initial attack area position (assuming boss faces right by default)
@@ -38,6 +37,7 @@ func _ready() -> void:
 	health_bar.max_value = max_health
 	health_bar.value = current_health
 	health_bar.show()
+	
 
 # --- PHYSICS PROCESS (Movement & AI Logic) ---
 func _physics_process(delta: float) -> void:
@@ -97,12 +97,13 @@ func attack() -> void:
 	
 	attack_cooldown_timer.start()
 	
-	# Wait for the attack animation to finish
-	await animated_sprite.animation_finished
-	if animated_sprite.animation == "Attack":
-		is_attacking = false
-		attack_area.monitoring = false
-		animated_sprite.play("Idle")
+
+func _on_attack_cooldown_timer_timeout():
+	is_attacking = false
+	attack_area.monitoring = false
+	animated_sprite.play("Idle")
+	# Now the boss is ready to check the range and attack again in _physics_process
+
 
 # --- DAMAGE APPLICATION ---
 func _check_initial_overlap() -> void:
@@ -149,6 +150,7 @@ func die() -> void:
 	collision_shape.set_deferred("disabled", true) # Disable main body collision
 	attack_area.monitoring = false
 	health_bar.hide()
+	attack_cooldown_timer.stop()
 	
 	#// Wait for death animation, then remove the boss
 	await animated_sprite.animation_finished
