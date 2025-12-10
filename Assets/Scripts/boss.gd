@@ -38,6 +38,8 @@ func _ready() -> void:
 	health_bar.value = current_health
 	health_bar.show()
 	
+	animated_sprite.animation_finished.connect(_on_animated_sprite_animation_finished)
+	
 
 # --- PHYSICS PROCESS (Movement & AI Logic) ---
 func _physics_process(delta: float) -> void:
@@ -98,6 +100,15 @@ func attack() -> void:
 	attack_cooldown_timer.start()
 	
 
+func _on_animated_sprite_animation_finished():
+	if animated_sprite.animation == "Attack":
+		# The attack animation finished, but we only go to Idle if we are NOT immediately ready to attack again.
+		# Since the timer controls the cooldown, we just transition to Idle.
+		# The timer timeout controls the reset of is_attacking = false
+		if not is_dead:
+			animated_sprite.play("Idle")
+
+
 func _on_attack_cooldown_timer_timeout():
 	is_attacking = false
 	attack_area.monitoring = false
@@ -120,8 +131,8 @@ func _apply_damage(body: Node) -> void:
 	if body.has_method("take_damage"):
 		#// Deal 1 HP damage
 		var knockback_direction = sign(body.global_position.x - global_position.x)
-		var knockback_force = Vector2(knockback_direction * 100, -50)
-		body.take_damage(1, knockback_force)
+		var knockback_force = Vector2(knockback_direction * 500, -50)
+		body.take_damage(3, knockback_force)
 
 # --- BOSS STATS AND DAMAGE ---
 func take_damage(amount: int, knockback_force: Vector2) -> void:

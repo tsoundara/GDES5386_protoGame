@@ -126,7 +126,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vokxe")
 }],
-"loop": true,
+"loop": false,
 "name": &"Dead",
 "speed": 5.0
 }, {
@@ -198,14 +198,15 @@ bg_color = Color(0.98039216, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dn206"]
 bg_color = Color(0.3094494, 0.62594587, 1.92523e-07, 1)
 
-[node name="FinalBoss" type="CharacterBody2D"]
+[node name="FinalBoss" type="CharacterBody2D" groups=["Boss"]]
 script = ExtResource("1_152vv")
+attack_cooldown_time = 0.0
 
 [node name="BossAnimatedSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -64)
 scale = Vector2(1.2313433, 1)
 sprite_frames = SubResource("SpriteFrames_akh2v")
-animation = &"Walk"
+animation = &"Dead"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -32)

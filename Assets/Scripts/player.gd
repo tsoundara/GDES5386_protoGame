@@ -146,9 +146,23 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 func _on_attack_area_body_entered(body: Node) -> void:
 	if not is_attacking:
 		return# Only register hits during an attack
+	# Calculate knockback vector once
+	var knockback_direction = sign(body.global_position.x - global_position.x)
+	var knockback = Vector2(100 * knockback_direction, -50)
+		
+	if body.is_in_group("Boss"):
+		# If it is the Boss, apply damage (assuming the Boss has a take_damage method)
+		if body.has_method("take_damage"):
+			body.take_damage(3, knockback) # Deal 2 damage to the boss
 	
-	if body.is_in_group("enemies"):
-		body.die()# Call the enemy's die() function
+	elif body.is_in_group("enemies"):
+		# If it is a regular enemy
+		if body.has_method("die"):
+			# Small enemies die immediately
+			body.die()
+		elif body.has_method("take_damage"):
+			# Larger enemies in the "enemies" group might use health
+			body.take_damage(3, knockback)
 
 func flash_red() -> void:
 	animated_sprite.modulate = Color(1, 0.3, 0.3)
