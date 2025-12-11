@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=4 uid="uid://b2wqec8acn5nq"]
+[gd_scene load_steps=89 format=4 uid="uid://b2wqec8acn5nq"]
 
 [ext_resource type="Texture2D" uid="uid://c2xdio2i8ybe6" path="res://Assets/Sprites/Tiles/residential street/Tile_27.png" id="1_ahag5"]
 [ext_resource type="Texture2D" uid="uid://ckm7aad6q6d13" path="res://Assets/Sprites/Tiles/residential street/Tile_01.png" id="1_r44lk"]
@@ -46,6 +46,8 @@
 [ext_resource type="Texture2D" uid="uid://csjeuli81ob15" path="res://Assets/Sprites/objects/Pillars/1_1.png" id="45_y5s1q"]
 [ext_resource type="Texture2D" uid="uid://6iv2ekuq2lc8" path="res://Assets/Sprites/objects/Pillars/2_1.png" id="46_gj1tt"]
 [ext_resource type="PackedScene" uid="uid://b75spgipvnq75" path="res://Assets/Scenes/Door.tscn" id="46_y5s1q"]
+[ext_resource type="Script" uid="uid://b3a6424t1em6n" path="res://InteractionArea.gd" id="47_sli8l"]
+[ext_resource type="FontFile" uid="uid://fihqsc3do34g" path="res://Assets/Sprites/UI/Pangolin-Regular.ttf" id="48_t34cc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q7l6p"]
 texture = ExtResource("1_r44lk")
@@ -5664,6 +5666,15 @@ sources/0 = SubResource("TileSetAtlasSource_q5bp2")
 sources/1 = SubResource("TileSetAtlasSource_y5s1q")
 sources/2 = SubResource("TileSetAtlasSource_gj1tt")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ucyuc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_10ijv"]
+font = ExtResource("48_t34cc")
+font_size = 22
+font_color = Color(0.9647059, 0, 0, 1)
+outline_size = 23
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Second_Level" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -5816,3 +5827,43 @@ texture = ExtResource("45_y5s1q")
 [node name="21" type="Sprite2D" parent="."]
 position = Vector2(2315, 367)
 texture = ExtResource("46_gj1tt")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+position = Vector2(130, 343)
+script = ExtResource("47_sli8l")
+interaction_message = "FIND THE COMMISIONER"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("RectangleShape2D_ucyuc")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="InteractionArea"]
+
+[node name="MessageLabel" type="Label" parent="InteractionArea/CanvasLayer"]
+offset_left = 446.0
+offset_top = 177.0
+offset_right = 702.0
+offset_bottom = 208.0
+text = "FIND THE COMMISIONER"
+label_settings = SubResource("LabelSettings_10ijv")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="InteractionArea2" type="Area2D" parent="."]
+position = Vector2(2630, 203)
+script = ExtResource("47_sli8l")
+interaction_message = "TIME TO MAKE THEM PAY"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea2"]
+shape = SubResource("RectangleShape2D_ucyuc")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="InteractionArea2"]
+
+[node name="MessageLabel" type="Label" parent="InteractionArea2/CanvasLayer"]
+offset_left = 445.0
+offset_top = 177.0
+offset_right = 701.0
+offset_bottom = 208.0
+text = "TIME TO MAKE THEM PAY"
+label_settings = SubResource("LabelSettings_10ijv")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
