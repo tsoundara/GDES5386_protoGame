@@ -47,11 +47,6 @@ func _ready() -> void:
 	health_bar.show()
 	
 	# Connect the detection signals
-	detection_area.body_entered.connect(_on_detection_area_body_entered)
-	detection_area.body_exited.connect(_on_detection_area_body_exited)
-	
-	# Also connect the attack area signal
-	attack_area.body_entered.connect(_on_attack_area_body_entered)
 	detection_area.area_entered.connect(_on_detection_area_area_entered)
 	
 	var shapes = detection_area.get_children()

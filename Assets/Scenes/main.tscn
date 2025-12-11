@@ -243,7 +243,7 @@
 [ext_resource type="Texture2D" uid="uid://bi1364vd2o7i6" path="res://Assets/Sprites/objects/Other/Skateboard2.png" id="236_40i7d"]
 [ext_resource type="Texture2D" uid="uid://bw6b3ehi63nqp" path="res://Assets/Sprites/objects/Signboards/9.png" id="237_yul73"]
 [ext_resource type="Texture2D" uid="uid://b2gk56q7haeld" path="res://Assets/Sprites/objects/City_Road_Objects/Camera1.png" id="238_mar8x"]
-[ext_resource type="Script" path="res://InteractionArea.gd" id="238_uwvpj"]
+[ext_resource type="Script" uid="uid://b3a6424t1em6n" path="res://InteractionArea.gd" id="238_uwvpj"]
 [ext_resource type="FontFile" uid="uid://fihqsc3do34g" path="res://Assets/Sprites/UI/Pangolin-Regular.ttf" id="239_ghuny"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7lrv3"]
@@ -10224,7 +10224,7 @@ flip_h = true
 [node name="Door" parent="." instance=ExtResource("221_085i1")]
 z_index = -1
 position = Vector2(7208, 561)
-next_level_path = "res://Assets/Scenes/second_level.tscn"
+next_level_path = "C:/Users/crazy/Documents/GitHub/GDES5386_protoGame/Assets/Scenes/levels/second_level.tscn"
 
 [node name="NPC" type="Node2D" parent="."]
 z_index = -1
