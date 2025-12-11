@@ -82,7 +82,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 # --- AI LOGIC ---
-func handle_chase_and_attack(delta: float) -> void:
+func handle_chase_and_attack(_delta: float) -> void:
 	if not player:
 		print("CHASE - No player found, stopping chase")
 		is_chasing = false
@@ -223,5 +223,4 @@ func _on_attack_area_body_entered(body: Node) -> void:
 		_apply_damage(body)
 
 func _on_detection_area_area_entered(area: Area2D) -> void:
-	
 	print("DETECTION - Area entered: ", area.name, " with owner: ", area.owner.name if area.owner else "no owner")

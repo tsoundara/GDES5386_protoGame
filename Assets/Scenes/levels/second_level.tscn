@@ -5732,10 +5732,6 @@ z_index = 1
 position = Vector2(2011, 385)
 scale = Vector2(0.87, 0.918)
 
-[node name="Door" parent="." instance=ExtResource("46_y5s1q")]
-position = Vector2(2701, 240)
-next_level_path = "res://Assets/Scenes/levels/commissioners_office.tscn"
-
 [node name="Decorations" type="Node2D" parent="."]
 
 [node name="31" type="Sprite2D" parent="Decorations"]
@@ -5867,3 +5863,7 @@ text = "TIME TO MAKE THEM PAY"
 label_settings = SubResource("LabelSettings_10ijv")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="Door" parent="." instance=ExtResource("46_y5s1q")]
+position = Vector2(2703, 240)
+next_level_path = "res://Assets/Scenes/levels/commissioners_office.tscn"
